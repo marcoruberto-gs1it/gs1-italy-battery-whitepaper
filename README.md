@@ -2,7 +2,6 @@
 
 Versione italiana, a cura di GS1 Italy, delle linee guida GS1 in Europe sull'implementazione del Regolamento (UE) 2023/1542 (fonte: [gs1turkiye/batterywhitepaper-web](https://github.com/gs1turkiye/batterywhitepaper-web)).
 
-Sito statico in puro HTML/CSS, senza framework né dipendenze: si apre direttamente `index.html` nel browser o si pubblica la cartella così com'è (es. GitHub Pages).
 
 ## Struttura
 
