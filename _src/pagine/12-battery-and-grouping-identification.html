@@ -1,0 +1,40 @@
+<h1>12. Identificazione delle batterie e dei raggruppamenti</h1>
+<h2>12.1 Funzioni normative di identificazione</h2>
+<p>Il Regolamento richiede che le batterie siano identificate, ma il livello di identificazione necessario dipende dalla finalità e dalle informazioni a cui consente di accedere. I fabbricanti devono garantire che le batterie riportino un'identificazione adeguata a soddisfare i requisiti normativi pertinenti. A seconda del caso d'uso, tale identificazione può essere necessaria a livello di modello, di lotto e/o di singola batteria. Può dover essere apposta direttamente sulla batteria oppure, se le dimensioni o la natura della batteria lo rendono impraticabile, sull'imballaggio o sulla documentazione di accompagnamento. In alcuni casi il Regolamento richiede inoltre di distinguere la batteria dal prodotto o dall'apparecchiatura in cui è installata: sia la batteria sia il prodotto ospitante possono quindi richiedere identificativi distinti. Gli standard GS1 offrono un quadro flessibile per supportare tutte queste esigenze di identificazione (articoli 38, paragrafo 6, 41, paragrafo 2, lettera d), e 42, paragrafo 2, lettera d)).</p>
+<table><thead><tr><th>Requisito</th><th>Granularità richiesta o appropriata</th><th>Come la supportano gli standard GS1</th><th>Motivazione</th></tr>
+</thead>
+<tbody><tr><td>Identificazione del prodotto</td><td>Modello più un numero di lotto o di serie, un codice prodotto o un altro elemento identificativo</td><td>Il GTIN identifica l'unità commerciale o il modello; il GTIN associato al numero di lotto identifica un lotto; il GTIN associato al numero di serie identifica una singola unità</td><td>GS1 consente l'identificazione della batteria assegnando un GTIN al modello di batteria e combinando il GTIN con il numero di lotto e/o il numero di serie.</td></tr>
+<tr><td>Passaporto della batteria</td><td>Ogni singola batteria</td><td>GTIN associato al numero di serie</td><td>Per le batterie che richiedono un passaporto è necessaria l'identificazione a livello di singola unità, quindi occorre il GTIN insieme al numero di serie.</td></tr>
+</tbody>
+</table>
+<h2>12.2 La batteria come unità commerciale</h2>
+<p>Una batteria è un'unità commerciale quando è un prodotto per il quale occorre reperire informazioni predefinite e a cui può essere attribuito un prezzo e che può essere ordinato o fatturato in un qualsiasi punto della supply chain.</p>
+<p>L'unità commerciale può essere un elemento di batteria, un modulo, un pacco batteria o un'altra configurazione di batteria. Se un pacco batteria e un modulo sostituibile sono commercializzati separatamente, a ciascuna unità commerciale distinta dovrebbe essere assegnato un proprio GTIN.</p>
+<p>Il GTIN identifica l'unità commerciale a livello di modello.</p>
+<h2>12.3 Batteria incorporata in un'altra unità commerciale</h2>
+<p>Il Regolamento si applica alle batterie incorporate nei prodotti e richiede l'identificazione della batteria stessa. I relativi obblighi di rimovibilità, sostituibilità e informazione restano soggetti al rispettivo ambito espresso e alle deroghe (articoli 1, paragrafo 3, 11 e 38, paragrafo 6).</p>
+<p>La batteria e il prodotto ospitante sono oggetti di identificazione e di dati distinti. Se ciascuno è un'unità commerciale, il GTIN della batteria identifica la batteria e il GTIN del prodotto ospitante identifica l'apparecchio, l'apparecchiatura o il veicolo. Gli attributi della batteria devono descrivere la batteria, non il prodotto ospitante.</p>
+<p>La loro relazione dovrebbe essere mantenuta alla granularità necessaria per la funzione. Un'associazione da modello a modello può essere sufficiente per un progetto invariato. Installazione, richiamo, assistenza, sostituzione o accesso al passaporto possono richiedere una relazione a livello di lotto o di singola unità.</p>
+<h2>12.4 Batteria fornita insieme a un'altra unità commerciale</h2>
+<p>Una batteria fornita insieme a un altro prodotto, ma non incorporata in esso, resta un oggetto distinto. Batteria e prodotto ospitante possono avere ciascuno un GTIN, mentre una configurazione combinata di vendita al dettaglio o di fornitura può richiedere un proprio GTIN secondo le regole di assegnazione applicabili.</p>
+<p>L'implementazione deve indicare se ciascun attributo descrive la batteria, il prodotto ospitante o la configurazione combinata. L'identificativo dell'unità commerciale esterna non identifica le singole batterie contenute; a tal fine servono identificativi individuali e una relazione di contenimento registrata.</p>
+<h2>12.5 Identificazione delle unità logistiche con l'SSCC</h2>
+<p>L'SSCC identifica un'unità logistica, ad esempio un pallet, un cartone, una gabbia o un contenitore, composta per il trasporto e/o lo stoccaggio. Supporta le registrazioni di spedizione, ricevimento, custodia e aggregazione.</p>
+<p>La relazione di contenuto deve associare l'SSCC alle unità commerciali contenute e agli eventuali identificativi di lotto o di serie registrati. Quando un'unità logistica viene riconfigurata, l'identificazione e le registrazioni del contenuto devono seguire le regole SSCC applicabili.</p>
+<p>L'SSCC non identifica un modello, un lotto o una singola unità di batteria e non può fungere da identificativo univoco dell'unità commerciale.</p>
+<h2>12.6 Scegliere il livello di identificazione appropriato</h2>
+<p>L'identificazione del prodotto, l'identificazione dei raggruppamenti di prodotti e l'identificazione delle unità logistiche svolgono funzioni diverse.</p>
+<p>La granularità dovrebbe seguire la funzione normativa, l'oggetto identificato e i dati da condividere.</p>
+<table><thead><tr><th>Funzione o dato</th><th>Livello di partenza</th><th>Motivazione</th></tr>
+</thead>
+<tbody><tr><td>Modello di batteria</td><td>GTIN</td><td>I dati devono valere per ciascun modello che condivide le stesse specifiche e gli stessi attributi (ossia i dati anagrafici)</td></tr>
+<tr><td>Lotto di batterie</td><td>GTIN associato al numero di lotto</td><td>Gruppo di articoli identici lavorati, fabbricati o confezionati insieme in condizioni di stabilimento uniformi in un determinato periodo di tempo</td></tr>
+<tr><td>Singola batteria</td><td>GTIN associato al numero di serie</td><td>Ogni singola unità di batteria ha una propria identificazione univoca</td></tr>
+<tr><td>Raggruppamento di prodotti</td><td>Un proprio GTIN, ove necessario</td><td>Ogni livello distinto di un'unità commerciale (gerarchia delle unità commerciali) a cui viene attribuito un prezzo o che viene ordinato o fatturato deve avere un proprio GTIN univoco</td></tr>
+<tr><td>Unità logistica</td><td>SSCC</td><td>A fini logistici, ogni singola unità logistica (ad esempio un pallet) necessita di un identificativo univoco</td></tr>
+</tbody>
+</table>
+<h2>12.7 Considerazioni sulla gestione del GTIN</h2>
+<p>Le GTIN Management Rules descrivono quali modifiche a un articolo richiedono un nuovo GTIN e quali non richiedono un cambio di GTIN. Per informazioni più dettagliate ...</p>
+<p>L'operatore economico dovrebbe valutare la modifica del prodotto, l'esigenza della supply chain di distinguerla, la continuità dell'accuratezza delle registrazioni per modello, lotto e singola unità e la continuità dei documenti.</p>
+<p>Tra le questioni aperte che incidono sulle implementazioni correlate figurano l'architettura delle informazioni QR per le batterie senza passaporto (OQ-REG-003), le informazioni sulle operazioni circolari al di fuori dell'ambito del passaporto (OQ-REG-007) e la governance del resolver GS1 Digital Link (OQ-GS1-003). Si vedano le Sezioni 13, «Etichettatura, codici QR e passaporti delle batterie», e 19, «Tracciabilità della filiera e scambio di informazioni».</p>

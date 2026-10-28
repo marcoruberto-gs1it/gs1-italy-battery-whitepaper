@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Passaporto della batteria EX-36-134 · Esempio</title>
+<meta name="description" content="Pagina dimostrativa di un passaporto della batteria raggiungibile tramite QR code standard GS1. Tutti i dati sono fittizi.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/img/favicon-gs1-italy.png">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+:root {
+  --bg: #f4f6f9; --surface: #ffffff; --soft: #f6f8fb; --mute: #eef2f7;
+  --text: #1a2233; --text-2: #4a5568; --text-3: #6b7689; --border: #e3e8ef;
+  --accent: #0b4fb3; --accent-soft: #e8f0fc; --gs1-blue: #002c6c; --gs1-orange: #f26334;
+  --chart: #0b4fb3; --grid: #e6eaf0;
+  --ok-bg: #e3f4ea; --ok: #12663a; --warn-bg: #fdf1dc; --warn: #8a5300;
+  --shadow: 0 1px 2px rgba(16,24,40,.05), 0 8px 24px rgba(16,24,40,.06);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1320; --surface: #141d2e; --soft: #121a2a; --mute: #1a2438;
+    --text: #e6eaf2; --text-2: #b2bccd; --text-3: #8592a8; --border: #253148;
+    --accent: #7fb0ff; --accent-soft: #1a2a48; --chart: #4f8ff0; --grid: #253148;
+    --ok-bg: #163a27; --ok: #8fe0b0; --warn-bg: #3a2a10; --warn: #f2c46d;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.3);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1320; --surface: #141d2e; --soft: #121a2a; --mute: #1a2438;
+  --text: #e6eaf2; --text-2: #b2bccd; --text-3: #8592a8; --border: #253148;
+  --accent: #7fb0ff; --accent-soft: #1a2a48; --chart: #4f8ff0; --grid: #253148;
+  --ok-bg: #163a27; --ok: #8fe0b0; --warn-bg: #3a2a10; --warn: #f2c46d;
+  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.3);
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.6 "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; -webkit-font-smoothing: antialiased; overflow-wrap: break-word; }
+a { color: var(--accent); }
+code { font: .9em/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; overflow-wrap: anywhere; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+/* Avviso dimostrativo */
+.demo { background: var(--gs1-blue); color: #fff; font-size: 13.5px; }
+.demo .wrap { display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: center; justify-content: space-between; padding-top: 9px; padding-bottom: 9px; }
+.demo strong { color: #ffd4c3; letter-spacing: .04em; }
+.demo a { color: #fff; font-weight: 600; }
+
+/* Intestazione dell'operatore (fittizio) */
+.op { background: var(--surface); border-bottom: 1px solid var(--border); }
+.op .wrap { display: flex; align-items: center; gap: 14px; min-height: 64px; flex-wrap: wrap; padding-top: 8px; padding-bottom: 8px; }
+.op-logo { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; background: linear-gradient(135deg, #3a4a63, #1e2838); color: #fff; font-weight: 700; font-size: 15px; letter-spacing: .02em; }
+.op-name { font-weight: 650; line-height: 1.2; }
+.op-name small { display: block; font-weight: 500; color: var(--text-3); font-size: 12.5px; }
+.op .spacer { flex: 1; }
+.theme-btn { width: 38px; height: 38px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text-2); cursor: pointer; display: grid; place-items: center; }
+
+/* Testata */
+.hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 24px; margin: 28px 0 20px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); }
+.product { padding: 24px; }
+.product .kicker { margin: 0 0 6px; font-size: 12.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--gs1-orange); }
+.product h1 { margin: 0 0 12px; font-size: clamp(24px, 3vw, 32px); line-height: 1.2; letter-spacing: -.015em; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; background: var(--mute); color: var(--text-2); }
+.chip.ok { background: var(--ok-bg); color: var(--ok); }
+.chip.info { background: var(--accent-soft); color: var(--accent); }
+.battery-img { display: block; width: 100%; height: auto; margin: 4px 0 18px; }
+.specs { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; margin: 0; }
+.specs div { padding: 10px 12px; border-radius: 10px; background: var(--soft); border: 1px solid var(--border); }
+.specs dt { font-size: 12px; color: var(--text-3); font-weight: 600; }
+.specs dd { margin: 2px 0 0; font-size: 17px; font-weight: 650; }
+
+.qr-card { padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+.qr-box { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+.qr-box img { width: 168px; height: 168px; background: #fff; border-radius: 8px; padding: 4px; border: 1px solid var(--border); }
+.qr-box .hri { font: 600 14px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; }
+.qr-box p { margin: 0 0 6px; color: var(--text-2); font-size: 13.5px; }
+.ids { margin: 0; display: grid; gap: 8px; }
+.ids div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 8px; font-size: 14px; padding-top: 8px; border-top: 1px solid var(--border); }
+.ids dt { color: var(--text-3); font-weight: 600; }
+.ids dd { margin: 0; }
+
+/* Selettore del livello di accesso */
+.access { padding: 16px 20px; margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; }
+.access p { margin: 0; flex: 1 1 300px; color: var(--text-2); font-size: 14px; }
+.seg { display: inline-flex; flex-wrap: wrap; padding: 4px; gap: 4px; border-radius: 10px; background: var(--mute); }
+.seg button { border: 0; padding: 8px 14px; border-radius: 7px; background: transparent; color: var(--text-2); font: 600 14px/1.2 inherit; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--surface); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+
+/* Navigazione delle sezioni */
+.tabs { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+.tabs ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+.tabs ul::-webkit-scrollbar { display: none; }
+.tabs a { display: block; padding: 12px 12px; white-space: nowrap; color: var(--text-2); text-decoration: none; font-weight: 600; font-size: 14px; border-bottom: 2px solid transparent; }
+.tabs a:hover { color: var(--text); }
+.tabs a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* Sezioni */
+section.card { padding: 22px 24px; margin-bottom: 20px; scroll-margin-top: 60px; }
+.sec-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; margin-bottom: 12px; }
+.sec-head h2 { margin: 0; font-size: 20px; letter-spacing: -.01em; }
+.level { font-size: 12.5px; font-weight: 600; color: var(--text-3); }
+.level b { color: var(--text-2); }
+.rows { margin: 0; }
+.row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: 4px 20px; padding: 11px 0; border-top: 1px solid var(--border); }
+.row dt { font-weight: 600; }
+.row dt small { display: block; margin-top: 2px; font-weight: 500; font-size: 12px; color: var(--text-3); }
+.row dd { margin: 0; color: var(--text); }
+.row dd .muted { color: var(--text-3); }
+.sub { margin: 20px 0 4px; font-size: 13px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--text-3); }
+details.later { margin-top: 14px; border: 1px dashed var(--border); border-radius: 10px; padding: 10px 14px; }
+details.later summary { cursor: pointer; font-weight: 600; color: var(--text-2); }
+details.later ul { margin: 8px 0 0; padding-left: 20px; color: var(--text-2); font-size: 14px; }
+
+/* Area riservata */
+.locked { display: none; padding: 18px; border-radius: 12px; background: var(--soft); border: 1px dashed var(--border); color: var(--text-2); }
+.locked strong { color: var(--text); }
+.restricted:not(.open) .content { display: none; }
+.restricted:not(.open) .locked { display: flex; gap: 12px; align-items: flex-start; }
+.lock-ico { flex: none; width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center; background: var(--mute); color: var(--text-2); }
+
+/* Grafici */
+.charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 16px; margin: 16px 0 6px; }
+figure.chart { margin: 0; padding: 14px 16px 10px; border: 1px solid var(--border); border-radius: 12px; background: var(--soft); }
+figure.chart figcaption { font-weight: 650; font-size: 14px; margin-bottom: 2px; }
+figure.chart .note { margin: 0 0 6px; font-size: 12.5px; color: var(--text-3); }
+figure.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.ax { fill: var(--text-3); font: 500 11px/1 Inter, system-ui, sans-serif; }
+.lbl { fill: var(--text); font: 600 11.5px/1 Inter, system-ui, sans-serif; }
+.gridline { stroke: var(--grid); stroke-width: 1; }
+.series { stroke: var(--chart); stroke-width: 2; fill: none; }
+.dot { fill: var(--chart); stroke: var(--soft); stroke-width: 2; }
+.bar { fill: var(--chart); }
+.hit { fill: transparent; cursor: default; }
+.hit:hover + .bar, .bar:hover { opacity: .8; }
+.tip { position: fixed; z-index: 30; pointer-events: none; padding: 6px 9px; border-radius: 7px; background: var(--text); color: var(--surface); font-size: 12.5px; font-weight: 600; box-shadow: var(--shadow); transform: translate(-50%, calc(-100% - 10px)); white-space: nowrap; }
+.tip[hidden] { display: none; }
+
+/* Cronologia */
+.timeline { list-style: none; margin: 8px 0 0; padding: 0; position: relative; }
+.timeline::before { content: ""; position: absolute; left: 7px; top: 6px; bottom: 6px; width: 2px; background: var(--border); }
+.timeline li { position: relative; padding: 0 0 18px 30px; }
+.timeline li::before { content: ""; position: absolute; left: 0; top: 5px; width: 16px; height: 16px; border-radius: 50%; background: var(--surface); border: 3px solid var(--accent); }
+.timeline li.alert::before { border-color: var(--gs1-orange); }
+.timeline time { font-size: 12.5px; font-weight: 700; color: var(--text-3); }
+.timeline h3 { margin: 2px 0 2px; font-size: 15.5px; }
+.timeline p { margin: 0; color: var(--text-2); font-size: 14px; }
+.timeline .gs1 { display: inline-block; margin-top: 4px; font-size: 12.5px; color: var(--text-3); }
+
+footer.foot { margin: 8px 0 40px; color: var(--text-3); font-size: 13px; }
+footer.foot p { margin: 0 0 6px; }
+
+@media (max-width: 880px) {
+  .hero { grid-template-columns: minmax(0, 1fr); }
+  .tabs ul { flex-wrap: wrap; overflow: visible; }
+  .tabs a { padding: 10px 10px; }
+}
+@media (max-width: 560px) {
+  .wrap { padding: 0 14px; }
+  .product, .qr-card, section.card { padding: 18px 16px; }
+  .row { grid-template-columns: minmax(0, 1fr); }
+  .ids div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .qr-box img { width: 148px; height: 148px; }
+  .op-name small { display: none; }
+  .tabs { position: static; }
+  .tabs ul { flex-wrap: wrap; overflow: visible; gap: 6px; padding: 10px 0; }
+  .tabs a { padding: 6px 10px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); font-size: 13px; }
+  .tabs a.active { border-color: var(--accent); }
+}
+@media print {
+  .demo, .tabs, .access, .theme-btn { display: none !important; }
+  .restricted .content { display: block !important; }
+  .restricted .locked { display: none !important; }
+  .card { box-shadow: none; break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<div class="demo" role="note">
+  <div class="wrap">
+    <span><strong>ESEMPIO</strong> · Pagina dimostrativa: tutti i nomi, gli indirizzi, i codici e i valori sono fittizi.</span>
+    <a href="26-battery-passport-example.html">← Torna alle linee guida (Sezione 26)</a>
+  </div>
+</div>
+
+<header class="op">
+  <div class="wrap">
+    <div class="op-logo" aria-hidden="true">AE</div>
+    <div class="op-name">Azienda Esempio S.r.l.<small>Passaporto della batteria · Regolamento (UE) 2023/1542</small></div>
+    <span class="spacer"></span>
+    <button class="theme-btn" type="button" aria-label="Cambia tema chiaro/scuro"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.39 5.39 0 0 1-4.4 2.26 5.4 5.4 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg></button>
+  </div>
+</header>
+
+<main class="wrap">
+
+<div class="hero">
+  <div class="card product">
+    <p class="kicker">Passaporto della batteria</p>
+    <h1>Batteria per e-bike EX&#8209;36&#8209;134</h1>
+    <div class="chips">
+      <span class="chip info">Batteria LMT</span>
+      <span class="chip ok">Stato: originale</span>
+      <span class="chip">Numero di serie EX27-000184</span>
+      <span class="chip">Ultimo aggiornamento: 12/05/2029</span>
+    </div>
+
+    <svg class="battery-img" viewBox="0 0 680 250" role="img" aria-labelledby="bat-t bat-d">
+      <title id="bat-t">Illustrazione della batteria EX-36-134</title>
+      <desc id="bat-d">Batteria per bicicletta a pedalata assistita di forma allungata, con impugnatura, serratura, indicatore di carica a cinque LED e un'etichetta che riporta il QR code standard GS1, il GTIN, il numero di serie, i dati tecnici, il simbolo della raccolta differenziata e la marcatura CE.</desc>
+      <defs>
+        <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#4a5568"/><stop offset=".45" stop-color="#2b3445"/><stop offset="1" stop-color="#171e2b"/>
+        </linearGradient>
+        <linearGradient id="cap" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#3b4658"/><stop offset="1" stop-color="#121722"/>
+        </linearGradient>
+        <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <ellipse cx="340" cy="226" rx="300" ry="12" fill="#000" opacity=".12"/>
+      <!-- corpo -->
+      <rect x="40" y="40" width="600" height="168" rx="46" fill="url(#body)"/>
+      <rect x="52" y="46" width="576" height="54" rx="27" fill="url(#shine)"/>
+      <!-- tappo con impugnatura -->
+      <path d="M40 86a46 46 0 0 1 46-46h44v168h-44a46 46 0 0 1-46-46z" fill="url(#cap)"/>
+      <rect x="62" y="18" width="78" height="30" rx="14" fill="none" stroke="#2b3445" stroke-width="10"/>
+      <!-- serratura -->
+      <circle cx="86" cy="124" r="15" fill="#cfd6e0"/><circle cx="86" cy="124" r="9" fill="#8793a5"/><rect x="83" y="114" width="6" height="20" rx="2" fill="#4a5568"/>
+      <!-- connettore -->
+      <rect x="626" y="96" width="22" height="56" rx="6" fill="#0f141d"/><circle cx="637" cy="112" r="4" fill="#c9a24a"/><circle cx="637" cy="136" r="4" fill="#c9a24a"/>
+      <!-- indicatore di carica -->
+      <g transform="translate(560 182)">
+        <rect x="-8" y="-11" width="70" height="22" rx="11" fill="#0f141d"/>
+        <circle cx="4" cy="0" r="4" fill="#34d27a"/><circle cx="16" cy="0" r="4" fill="#34d27a"/><circle cx="28" cy="0" r="4" fill="#34d27a"/><circle cx="40" cy="0" r="4" fill="#34d27a"/><circle cx="52" cy="0" r="4" fill="#3a4658"/>
+      </g>
+      <!-- etichetta -->
+      <rect x="160" y="62" width="380" height="124" rx="10" fill="#f8fafc"/>
+      <image href="assets/img/qr-esempio-passaporto.svg" x="170" y="70" width="108" height="108"/>
+      <g font-family="Inter, system-ui, sans-serif" fill="#1a2233">
+        <text x="290" y="88" font-size="15" font-weight="700">Azienda Esempio</text>
+        <text x="290" y="106" font-size="12" font-weight="600">EX-36-134 · Batteria LMT</text>
+        <text x="290" y="123" font-size="10.5">Li-ion NMC · 36 V · 13,4 Ah · 482 Wh</text>
+        <text x="290" y="139" font-size="10.5">3,1 kg · 03/2027 · Città Esempio (IT)</text>
+        <text x="290" y="158" font-size="10" font-family="ui-monospace, Menlo, monospace">(01) 09506000134352</text>
+        <text x="290" y="172" font-size="10" font-family="ui-monospace, Menlo, monospace">(21) EX27-000184</text>
+      </g>
+      <!-- simbolo raccolta differenziata (stilizzato) -->
+      <line x1="488" y1="72" x2="488" y2="176" stroke="#d5dbe4" stroke-width="1"/>
+      <g transform="translate(501 74) scale(.8)" stroke="#1a2233" stroke-width="2.4" fill="none">
+        <path d="M2 6h22M6 6l2 22h10l2-22M10 3h6"/><circle cx="9" cy="31" r="2"/><circle cx="18" cy="31" r="2"/><path d="M0 0l26 36M26 0L0 36"/>
+      </g>
+      <!-- marcatura CE (stilizzata) -->
+      <text x="497" y="168" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="700" fill="#1a2233" letter-spacing="-1">CE</text>
+    </svg>
+
+    <dl class="specs">
+      <div><dt>Tensione nominale</dt><dd>36 V</dd></div>
+      <div><dt>Capacità</dt><dd>13,4 Ah</dd></div>
+      <div><dt>Energia</dt><dd>482 Wh</dd></div>
+      <div><dt>Peso</dt><dd>3,1 kg</dd></div>
+      <div><dt>Chimica</dt><dd>Li-ion NMC</dd></div>
+      <div><dt>Fabbricazione</dt><dd>03/2027</dd></div>
+    </dl>
+  </div>
+
+  <aside class="card qr-card" aria-label="Codice QR e identificativi">
+    <div class="qr-box">
+      <img src="assets/img/qr-esempio-passaporto.svg" alt="QR code standard GS1 che codifica l'URI GS1 Digital Link della batteria" width="168" height="168">
+      <div>
+        <p>QR code standard GS1 con GS1 Digital Link, stampato sulla batteria</p>
+        <div class="hri">(01) 09506000134352<br>(21) EX27-000184</div>
+      </div>
+    </div>
+    <dl class="ids">
+      <div><dt>Identificativo univoco</dt><dd><code>https://id.example.com/01/09506000134352/21/EX27-000184</code></dd></div>
+      <div><dt>GTIN (modello)</dt><dd>09506000134352</dd></div>
+      <div><dt>Numero di serie</dt><dd>EX27-000184</dd></div>
+      <div><dt>Operatore responsabile</dt><dd>Azienda Esempio S.r.l. · GLN 9506000000008</dd></div>
+      <div><dt>Registro UE</dt><dd>Passaporto registrato (esempio)</dd></div>
+    </dl>
+  </aside>
+</div>
+
+<div class="card access">
+  <p><strong>Livello di accesso.</strong> La parte pubblica è visibile a chiunque scansioni il codice QR. Le informazioni riservate richiedono l'autenticazione. Qui puoi simulare cosa vede ciascun profilo.</p>
+  <div class="seg" role="group" aria-label="Visualizza come">
+    <button type="button" data-role="0" aria-pressed="true">Pubblico</button>
+    <button type="button" data-role="1" aria-pressed="false">Interesse legittimo</button>
+    <button type="button" data-role="2" aria-pressed="false">Autorità</button>
+  </div>
+</div>
+
+<nav class="tabs" aria-label="Sezioni del passaporto">
+  <div class="wrap" style="padding:0">
+    <ul>
+      <li><a href="#generale">Generale</a></li>
+      <li><a href="#materiali">Materiali</a></li>
+      <li><a href="#prestazioni">Prestazioni</a></li>
+      <li><a href="#conformita">Conformità e fine vita</a></li>
+      <li><a href="#riservate">Informazioni riservate</a></li>
+      <li><a href="#stato">Stato della batteria</a></li>
+      <li><a href="#storia">Cronologia</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="card" id="generale">
+  <div class="sec-head"><h2>Informazioni generali</h2><span class="level">Accesso <b>pubblico</b> · dati del modello e di fabbricazione</span></div>
+  <dl class="rows">
+    <div class="row"><dt>Identificativo univoco<small>Data point 1 · Art. 77(3)</small></dt><dd><code>https://id.example.com/01/09506000134352/21/EX27-000184</code></dd></div>
+    <div class="row"><dt>Responsabile del passaporto<small>Data point 2 · Art. 77(3)</small></dt><dd>Azienda Esempio S.r.l.</dd></div>
+    <div class="row"><dt>Fabbricante<small>Data point 3 · All. VI A(1)</small></dt><dd>Azienda Esempio S.r.l. (marchio «Esempio»)</dd></div>
+    <div class="row"><dt>Indirizzo postale<small>Data point 4 · All. VI A(1)</small></dt><dd>Via dell'Esempio 10, 00000 Città Esempio (XX), Italia</dd></div>
+    <div class="row"><dt>Sito web ed e-mail<small>Data point 5 · All. VI A(1)</small></dt><dd>www.example.com · info@example.com</dd></div>
+    <div class="row"><dt>Categoria<small>Data point 6 · All. VI A(2)</small></dt><dd>Batteria per mezzi di trasporto leggeri (LMT)</dd></div>
+    <div class="row"><dt>Identificazione<small>Data point 7 · All. VI A(2)</small></dt><dd>Modello EX-36-134 · GTIN 09506000134352 · numero di serie EX27-000184</dd></div>
+    <div class="row"><dt>Luogo di fabbricazione<small>Data point 8 · All. VI A(3)</small></dt><dd>Città Esempio, Regione Esempio, Italia <span class="muted">(stabilimento GLN 9506000000015)</span></dd></div>
+    <div class="row"><dt>Data di fabbricazione<small>Data point 9 · All. VI A(4)</small></dt><dd>03/2027</dd></div>
+    <div class="row"><dt>Peso<small>Data point 10 · All. VI A(5)</small></dt><dd>3,1 kg</dd></div>
+    <div class="row"><dt>Capacità<small>Data point 11 · All. VI A(6)</small></dt><dd>13,4 Ah</dd></div>
+  </dl>
+</section>
+
+<section class="card" id="materiali">
+  <div class="sec-head"><h2>Composizione e materiali</h2><span class="level">Accesso <b>pubblico</b> · dati del modello</span></div>
+  <dl class="rows">
+    <div class="row"><dt>Composizione chimica<small>Data point 12 · All. VI A(7)</small></dt><dd>Litio-ione NMC (nichel-manganese-cobalto)</dd></div>
+    <div class="row"><dt>Sostanze pericolose<small>Data point 13 · All. VI A(8)</small></dt><dd>Esafluorofosfato di litio (LiPF<sub>6</sub>) nell'elettrolita</dd></div>
+    <div class="row"><dt>Agente estinguente utilizzabile<small>Data point 14 · All. VI A(9)</small></dt><dd>Acqua in grande quantità per il raffreddamento</dd></div>
+    <div class="row"><dt>Materie prime critiche oltre lo 0,1 % in peso<small>Data point 15 · All. VI A(10)</small></dt><dd>Cobalto, grafite naturale, litio, nichel</dd></div>
+    <div class="row"><dt>Quota di contenuto rinnovabile<small>Data point 24 · All. XIII 1(f)</small></dt><dd>0 %</dd></div>
+  </dl>
+  <details class="later">
+    <summary>Informazioni non ancora richieste per questa batteria</summary>
+    <ul>
+      <li>Dichiarazione ed etichetta dell'impronta di carbonio (data point 17–18): formato da definire con atto di esecuzione.</li>
+      <li>Approvvigionamento responsabile (data point 19): richiesto dal 18 agosto 2027.</li>
+      <li>Contenuto riciclato di cobalto, litio, nichel e piombo (data point 20–23): secondo i tempi dell'articolo 8.</li>
+      <li>Istruzioni per l'uso (data point 45): disposizione sospesa in attesa dell'adozione dell'Omnibus.</li>
+    </ul>
+  </details>
+</section>
+
+<section class="card" id="prestazioni">
+  <div class="sec-head"><h2>Prestazioni e durabilità</h2><span class="level">Accesso <b>pubblico</b> · dati del modello</span></div>
+  <dl class="rows">
+    <div class="row"><dt>Tensione minima, nominale e massima<small>Data point 26–28 · All. XIII 1(h)</small></dt><dd>30,0 V · 36,0 V · 42,0 V <span class="muted">(da 0 a 45 °C)</span></dd></div>
+    <div class="row"><dt>Capacità di potenza originaria<small>Data point 29 · All. XIII 1(i)</small></dt><dd>750 W</dd></div>
+    <div class="row"><dt>Limiti di potenza<small>Data point 30 · All. XIII 1(i)</small></dt><dd>750 W da 10 a 40 °C · 400 W da 0 a 10 °C</dd></div>
+    <div class="row"><dt>Durata di vita prevista<small>Data point 31 · All. XIII 1(j)</small></dt><dd>1 000 cicli</dd></div>
+    <div class="row"><dt>Prova di riferimento<small>Data point 32 · All. XIII 1(j)</small></dt><dd>Cicli completi di carica a 0,5C e scarica a 1C a 25 °C, fino all'80 % della capacità iniziale</dd></div>
+    <div class="row"><dt>Temperatura sopportabile a riposo<small>Data point 34 · All. XIII 1(l)</small></dt><dd>Da −20 a +45 °C <span class="muted">(prova di stoccaggio di 30 giorni)</span></dd></div>
+    <div class="row"><dt>Garanzia commerciale sulla durata di calendario<small>Data point 35 · All. XIII 1(m)</small></dt><dd>24 mesi</dd></div>
+    <div class="row"><dt>Efficienza di andata e ritorno<small>Data point 36–37 · All. XIII 1(n)</small></dt><dd>95 % iniziale · 93 % al 50 % della durata in cicli</dd></div>
+    <div class="row"><dt>Resistenza interna<small>Data point 38 · All. XIII 1(o)</small></dt><dd>Elemento 22 mΩ · pacco 160 mΩ</dd></div>
+    <div class="row"><dt>Tasso C della prova in cicli<small>Data point 39–40 · All. XIII 1(p)</small></dt><dd>Carica 0,5 · scarica 1</dd></div>
+  </dl>
+</section>
+
+<section class="card" id="conformita">
+  <div class="sec-head"><h2>Conformità, etichette e fine vita</h2><span class="level">Accesso <b>pubblico</b> · dati del modello</span></div>
+  <dl class="rows">
+    <div class="row"><dt>Simbolo della raccolta differenziata<small>Data point 41 · All. XIII 1(q)</small></dt><dd>Sì</dd></div>
+    <div class="row"><dt>Simboli Cd o Pb<small>Data point 42 · All. XIII 1(q)</small></dt><dd>Nessuno: cadmio e piombo sotto le soglie</dd></div>
+    <div class="row"><dt>Dichiarazione di conformità UE<small>Data point 43 · All. XIII 1(r)</small></dt><dd><a href="#conformita" aria-disabled="true">Dichiarazione_UE_EX-36-134.pdf</a> <span class="muted">(collegamento d'esempio)</span></dd></div>
+    <div class="row"><dt>Prevenzione e gestione dei rifiuti<small>Data point 44 · All. XIII 1(s)</small></dt><dd>
+      <ul style="margin:0;padding-left:18px">
+        <li>Conservare la batteria tra 10 e 25 °C e caricarla al 40–60 % se inutilizzata a lungo, per prolungarne la durata.</li>
+        <li>Non gettare la batteria nei rifiuti urbani: consegnarla gratuitamente ai punti di raccolta o ai distributori, che la ritirano senza obbligo di acquisto.</li>
+        <li>Le batterie al litio danneggiate possono surriscaldarsi o incendiarsi: isolare i contatti e non aprire l'involucro.</li>
+        <li>Il simbolo del bidone barrato indica la raccolta differenziata obbligatoria.</li>
+      </ul>
+    </dd></div>
+  </dl>
+</section>
+
+<section class="card restricted" id="riservate" data-min-role="1">
+  <div class="sec-head"><h2>Informazioni riservate</h2><span class="level">Accesso <b>riservato</b> · persone con interesse legittimo, organismi notificati, autorità</span></div>
+  <div class="locked"><span class="lock-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5zm-3 8V7a3 3 0 1 1 6 0v3z"/></svg></span><div><strong>Contenuto riservato.</strong> Composizione dettagliata, codici dei componenti, istruzioni di smontaggio e misure di sicurezza sono visibili solo a chi ha un interesse legittimo, ad esempio riparatori e riciclatori, dopo l'autenticazione. Seleziona «Interesse legittimo» per simulare l'accesso.</div></div>
+  <div class="content">
+    <dl class="rows">
+      <div class="row"><dt>Composizione dettagliata<small>Data point 46 · All. XIII 2(a)</small></dt><dd>Catodo NMC 811; anodo in grafite naturale e sintetica; elettrolita LiPF<sub>6</sub> in carbonati organici</dd></div>
+      <div class="row"><dt>Componenti e ricambi<small>Data point 47 · All. XIII 2(b)</small></dt><dd>Sistema di gestione delle batterie EX-BMS-10 · connettore EX-CON-2 · involucro EX-CASE-36 · ricambi: ricambi@example.com</dd></div>
+      <div class="row"><dt>Smontaggio<small>Data point 48 · All. XIII 2(c)</small></dt><dd>Esploso e sequenza in 9 passi; 12 viti a testa esalobata; attrezzi comuni; avvertenza: non forare gli elementi; 40 elementi cilindrici 21700 in configurazione 10S4P</dd></div>
+      <div class="row"><dt>Misure di sicurezza<small>Data point 49 · All. XIII 2(d)</small></dt><dd>Istruzioni per manipolazione, trasporto (merce pericolosa, classe 9) e stoccaggio delle batterie danneggiate</dd></div>
+    </dl>
+    <div class="restricted" data-min-role="2" style="margin-top:6px">
+      <div class="locked" style="margin-top:10px"><span class="lock-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5zm-3 8V7a3 3 0 1 1 6 0v3z"/></svg></span><div><strong>Solo autorità.</strong> I rapporti di prova di conformità sono visibili solo a organismi notificati, autorità di vigilanza del mercato e Commissione.</div></div>
+      <div class="content">
+        <dl class="rows">
+          <div class="row"><dt>Rapporti di prova di conformità<small>Data point 50 · All. XIII 3</small></dt><dd>Rapporti_prova_EX-36-134.zip <span class="muted">(collegamento d'esempio)</span></dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="card restricted" id="stato" data-min-role="1">
+  <div class="sec-head"><h2>Stato della batteria</h2><span class="level">Accesso <b>riservato</b> · dati della singola batteria EX27-000184 · aggiornati il 12/05/2029</span></div>
+  <div class="locked"><span class="lock-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5zm-3 8V7a3 3 0 1 1 6 0v3z"/></svg></span><div><strong>Contenuto riservato.</strong> Stato di salute, cicli, eventi e condizioni d'uso di questa specifica batteria sono visibili solo alle persone con interesse legittimo. Seleziona «Interesse legittimo» per simulare l'accesso.</div></div>
+  <div class="content">
+    <div class="charts">
+      <figure class="chart">
+        <figcaption>Capacità residua (Ah)</figcaption>
+        <p class="note">Data point 62 · letture del sistema di gestione delle batterie</p>
+        <svg viewBox="0 0 320 170" role="img" aria-label="Capacità residua: 13,4 Ah a marzo 2027, 12,8 Ah a settembre 2028, 12,5 Ah a maggio 2029">
+          <g class="ax">
+            <line class="gridline" x1="40" x2="310" y1="20" y2="20"/><text x="32" y="24" text-anchor="end">14</text>
+            <line class="gridline" x1="40" x2="310" y1="60" y2="60"/><text x="32" y="64" text-anchor="end">13</text>
+            <line class="gridline" x1="40" x2="310" y1="100" y2="100"/><text x="32" y="104" text-anchor="end">12</text>
+            <line class="gridline" x1="40" x2="310" y1="140" y2="140"/><text x="32" y="144" text-anchor="end">11</text>
+            <text x="56" y="162" text-anchor="middle">03/2027</text><text x="214" y="162" text-anchor="middle">09/2028</text><text x="290" y="162" text-anchor="middle">05/2029</text>
+          </g>
+          <polyline class="series" points="56,44 214,68 290,80"/>
+          <g data-tip="03/2027 · 13,4 Ah"><circle class="hit" cx="56" cy="44" r="14"/><circle class="dot" cx="56" cy="44" r="5"/></g>
+          <g data-tip="09/2028 · 12,8 Ah (controllo dopo la caduta)"><circle class="hit" cx="214" cy="68" r="14"/><circle class="dot" cx="214" cy="68" r="5"/></g>
+          <g data-tip="05/2029 · 12,5 Ah"><circle class="hit" cx="290" cy="80" r="14"/><circle class="dot" cx="290" cy="80" r="5"/></g>
+          <text class="lbl" x="290" y="102" text-anchor="end">12,5 Ah</text>
+        </svg>
+      </figure>
+      <figure class="chart">
+        <figcaption>Tempo di funzionamento per temperatura (%)</figcaption>
+        <p class="note">Data point 70 · condizioni ambientali registrate</p>
+        <svg viewBox="0 0 320 170" role="img" aria-label="Temperatura di funzionamento: 8 % sotto 10 °C, 62 % tra 10 e 25 °C, 30 % tra 25 e 35 °C, 0 % sopra 35 °C">
+          <g class="ax">
+            <line class="gridline" x1="20" x2="310" y1="140" y2="140"/>
+            <text x="56" y="160" text-anchor="middle">&lt; 10 °C</text><text x="128" y="160" text-anchor="middle">10–25 °C</text><text x="200" y="160" text-anchor="middle">25–35 °C</text><text x="272" y="160" text-anchor="middle">&gt; 35 °C</text>
+          </g>
+          <g data-tip="Sotto 10 °C · 8 %"><rect class="hit" x="24" y="10" width="64" height="130"/><path class="bar" d="M28 140V131a4 4 0 0 1 4-4h48a4 4 0 0 1 4 4v9z"/><text class="lbl" x="56" y="120" text-anchor="middle">8 %</text></g>
+          <g data-tip="Tra 10 e 25 °C · 62 %"><rect class="hit" x="96" y="10" width="64" height="130"/><path class="bar" d="M100 140V37a4 4 0 0 1 4-4h48a4 4 0 0 1 4 4v103z"/><text class="lbl" x="128" y="26" text-anchor="middle">62 %</text></g>
+          <g data-tip="Tra 25 e 35 °C · 30 %"><rect class="hit" x="168" y="10" width="64" height="130"/><path class="bar" d="M172 140V92a4 4 0 0 1 4-4h48a4 4 0 0 1 4 4v48z"/><text class="lbl" x="200" y="81" text-anchor="middle">30 %</text></g>
+          <g data-tip="Sopra 35 °C · 0 %"><rect class="hit" x="240" y="10" width="64" height="130"/><text class="lbl" x="272" y="132" text-anchor="middle">0 %</text></g>
+        </svg>
+      </figure>
+      <figure class="chart">
+        <figcaption>Tempo per stato di carica (%)</figcaption>
+        <p class="note">Data point 71 · stato di carica registrato</p>
+        <svg viewBox="0 0 320 170" role="img" aria-label="Stato di carica: 18 % tra 0 e 20 %, 14 % tra 20 e 40 %, 22 % tra 40 e 60 %, 28 % tra 60 e 80 %, 18 % tra 80 e 100 %">
+          <g class="ax">
+            <line class="gridline" x1="20" x2="310" y1="140" y2="140"/>
+            <text x="47" y="160" text-anchor="middle">0–20</text><text x="105" y="160" text-anchor="middle">20–40</text><text x="163" y="160" text-anchor="middle">40–60</text><text x="221" y="160" text-anchor="middle">60–80</text><text x="279" y="160" text-anchor="middle">80–100</text>
+          </g>
+          <g data-tip="Stato di carica 0–20 % · 18 % del tempo"><rect class="hit" x="20" y="10" width="54" height="130"/><path class="bar" d="M24 140V84a4 4 0 0 1 4-4h38a4 4 0 0 1 4 4v56z"/><text class="lbl" x="47" y="73" text-anchor="middle">18 %</text></g>
+          <g data-tip="Stato di carica 20–40 % · 14 % del tempo"><rect class="hit" x="78" y="10" width="54" height="130"/><path class="bar" d="M82 140V97a4 4 0 0 1 4-4h38a4 4 0 0 1 4 4v43z"/><text class="lbl" x="105" y="86" text-anchor="middle">14 %</text></g>
+          <g data-tip="Stato di carica 40–60 % · 22 % del tempo"><rect class="hit" x="136" y="10" width="54" height="130"/><path class="bar" d="M140 140V71a4 4 0 0 1 4-4h38a4 4 0 0 1 4 4v69z"/><text class="lbl" x="163" y="60" text-anchor="middle">22 %</text></g>
+          <g data-tip="Stato di carica 60–80 % · 28 % del tempo"><rect class="hit" x="194" y="10" width="54" height="130"/><path class="bar" d="M198 140V52a4 4 0 0 1 4-4h38a4 4 0 0 1 4 4v88z"/><text class="lbl" x="221" y="41" text-anchor="middle">28 %</text></g>
+          <g data-tip="Stato di carica 80–100 % · 18 % del tempo"><rect class="hit" x="252" y="10" width="54" height="130"/><path class="bar" d="M256 140V84a4 4 0 0 1 4-4h38a4 4 0 0 1 4 4v56z"/><text class="lbl" x="279" y="73" text-anchor="middle">18 %</text></g>
+        </svg>
+      </figure>
+    </div>
+
+    <p class="sub">Stato di salute (data point 62–66)</p>
+    <dl class="rows">
+      <div class="row"><dt>Capacità residua<small>Data point 62</small></dt><dd>12,5 Ah <span class="muted">(93 % della capacità nominale di 13,4 Ah)</span></dd></div>
+      <div class="row"><dt>Capacità di potenza residua<small>Data point 63</small></dt><dd>715 W</dd></div>
+      <div class="row"><dt>Efficienza di andata e ritorno residua<small>Data point 64</small></dt><dd>94 %</dd></div>
+      <div class="row"><dt>Evoluzione dell'autoscarica<small>Data point 65</small></dt><dd>2,3 % all'anno <span class="muted">(rilevato il 12/05/2029)</span></dd></div>
+      <div class="row"><dt>Resistenza ohmica<small>Data point 66</small></dt><dd>171 mΩ</dd></div>
+    </dl>
+
+    <p class="sub">Stato e utilizzo (data point 67–71)</p>
+    <dl class="rows">
+      <div class="row"><dt>Stato della batteria<small>Data point 67</small></dt><dd>Originale</dd></div>
+      <div class="row"><dt>Cicli di carica e scarica<small>Data point 68</small></dt><dd>312</dd></div>
+      <div class="row"><dt>Eventi negativi<small>Data point 69</small></dt><dd>14/09/2028: caduta della bicicletta; nessun danno rilevato all'ispezione</dd></div>
+      <div class="row"><dt>Condizioni ambientali e stato di carica<small>Data point 70–71</small></dt><dd>Istogrammi riportati nei grafici qui sopra</dd></div>
+    </dl>
+
+    <p class="sub">Prestazioni e durabilità della singola batteria (data point 51–60)</p>
+    <dl class="rows">
+      <div class="row"><dt>Capacità nominale · riduzione della capacità<small>Data point 51–52</small></dt><dd>13,4 Ah · 0 %</dd></div>
+      <div class="row"><dt>Potenza · riduzione della potenza<small>Data point 53–54</small></dt><dd>750 W · 0 %</dd></div>
+      <div class="row"><dt>Resistenza interna · aumento<small>Data point 55–56</small></dt><dd>160 mΩ · 0 %</dd></div>
+      <div class="row"><dt>Efficienza di andata e ritorno · riduzione<small>Data point 57–58</small></dt><dd>95 % · 0 %</dd></div>
+      <div class="row"><dt>Durata di vita prevista<small>Data point 59–60</small></dt><dd>1 000 cicli · 5 anni</dd></div>
+    </dl>
+    <p class="note" style="margin:10px 0 0;color:var(--text-3);font-size:13px">I data point 51–60 restano ai valori iniziali finché non cambia lo stato della batteria (ad esempio rifabbricazione o cambio di destinazione), come indicato dalla Commissione.</p>
+  </div>
+</section>
+
+<section class="card" id="storia">
+  <div class="sec-head"><h2>Cronologia</h2><span class="level">Eventi registrati per la batteria EX27-000184</span></div>
+  <ol class="timeline">
+    <li><time datetime="2027-03-18">18/03/2027</time><h3>Fabbricazione e attivazione del passaporto</h3><p>Batteria prodotta e collaudata; passaporto creato e registrato nel registro UE.</p><span class="gs1">Evento EPCIS di attivazione · stabilimento GLN 9506000000015</span></li>
+    <li><time datetime="2027-03-22">22/03/2027</time><h3>Spedizione</h3><p>Spedita su pallet insieme ad altre 47 batterie dello stesso modello.</p><span class="gs1">Evento EPCIS di aggregazione e spedizione · SSCC (00) 395060000000000016</span></li>
+    <li><time datetime="2027-04-10">10/04/2027</time><h3>Installazione su una bicicletta</h3><p>Montata su una bicicletta a pedalata assistita; la batteria mantiene il proprio identificativo e il proprio passaporto.</p><span class="gs1">Evento EPCIS di associazione tra batteria e bicicletta</span></li>
+    <li class="alert"><time datetime="2028-09-14">14/09/2028</time><h3>Evento negativo: caduta</h3><p>Caduta della bicicletta; ispezione in officina senza danni rilevati. Capacità residua 12,8 Ah.</p><span class="gs1">Evento EPCIS di ispezione · officina d'esempio</span></li>
+    <li><time datetime="2029-05-12">12/05/2029</time><h3>Assistenza programmata</h3><p>Lettura dei dati del sistema di gestione delle batterie e aggiornamento dello stato di salute e dei dati d'uso.</p><span class="gs1">Evento EPCIS di ispezione · aggiornamento su incarico scritto del fabbricante</span></li>
+  </ol>
+</section>
+
+<footer class="foot">
+  <p>Passaporto della batteria ospitato da Azienda Esempio S.r.l., operatore responsabile ai sensi dell'articolo 77 del Regolamento (UE) 2023/1542. Data point secondo la guida della Commissione europea «Digital Batteries Passport – data points by category», versione 3.2.</p>
+  <p><strong>Pagina dimostrativa</strong> delle Linee guida GS1 sulle batterie, edizione italiana a cura di GS1 Italy. Azienda, marchio, indirizzi, componenti e valori sono fittizi; il GTIN 09506000134352 e i GLN con prefisso 950 sono numeri d'esempio GS1 e il dominio example.com è riservato agli esempi. <a href="26-battery-passport-example.html">Torna alla Sezione 26</a>.</p>
+</footer>
+
+</main>
+
+<div class="tip" role="tooltip" hidden></div>
+
+<script>
+(function () {
+  // Tema chiaro/scuro, condiviso con il resto del sito
+  document.querySelector('.theme-btn').addEventListener('click', function () {
+    var root = document.documentElement;
+    var dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme = dark ? 'light' : 'dark';
+    try { localStorage.setItem('tema', root.dataset.theme); } catch (e) {}
+  });
+
+  // Simulazione del livello di accesso
+  var buttons = document.querySelectorAll('.seg button');
+  function setRole(role) {
+    buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(+b.dataset.role === role)); });
+    document.querySelectorAll('.restricted').forEach(function (s) {
+      s.classList.toggle('open', role >= +s.dataset.minRole);
+    });
+  }
+  buttons.forEach(function (b) { b.addEventListener('click', function () { setRole(+b.dataset.role); }); });
+  setRole(0);
+
+  // Descrizioni al passaggio del mouse sui grafici
+  var tip = document.querySelector('.tip');
+  document.querySelectorAll('[data-tip]').forEach(function (g) {
+    g.addEventListener('mouseenter', function () {
+      var r = g.getBoundingClientRect();
+      tip.textContent = g.dataset.tip;
+      tip.style.left = (r.left + r.width / 2) + 'px';
+      tip.style.top = r.top + 'px';
+      tip.hidden = false;
+    });
+    g.addEventListener('mouseleave', function () { tip.hidden = true; });
+  });
+  window.addEventListener('scroll', function () { tip.hidden = true; }, { passive: true });
+
+  // Evidenzia la sezione corrente nella barra di navigazione
+  var links = Array.prototype.slice.call(document.querySelectorAll('.tabs a'));
+  if (!('IntersectionObserver' in window)) return;
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      links.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id); });
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  document.querySelectorAll('main section[id]').forEach(function (s) { obs.observe(s); });
+})();
+</script>
+</body>
+</html>

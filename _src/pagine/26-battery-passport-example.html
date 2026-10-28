@@ -1,0 +1,134 @@
+<h1>26. Esempio completo: il passaporto di una batteria per e-bike</h1>
+<p>Questo esempio mostra come un fabbricante può costruire il passaporto di una batteria per mezzi di trasporto leggeri utilizzando gli standard GS1: identificazione, codice QR, compilazione dei data point della Sezione 25 e aggiornamento dei dati nel corso della vita della batteria.</p>
+<div class="callout">
+<p class="callout-title">Esempio illustrativo</p>
+<p>Azienda, indirizzi e valori tecnici sono fittizi e servono solo a mostrare la struttura delle informazioni. Il GTIN 09506000134352 e i GLN con prefisso 950 sono numeri d'esempio usati nella documentazione GS1 e non vanno utilizzati su prodotti reali; il dominio <code>example.com</code> è riservato agli esempi. I valori non sostituiscono prove, calcoli o valutazioni della conformità.</p>
+</div>
+<div class="callout">
+<p class="callout-title">Guarda la pagina del passaporto</p>
+<p>Questo esempio è disponibile anche come <a href="esempio-passaporto.html"><strong>pagina web dimostrativa</strong></a>: è ciò che vedrebbe chi scansiona il QR code standard GS1 sulla batteria, con l'immagine del prodotto, il codice QR, tutti i data point e la simulazione dei livelli di accesso (pubblico, interesse legittimo, autorità).</p>
+</div>
+<h2>26.1 Lo scenario</h2>
+<p>Azienda Esempio S.r.l., con sede in Italia, fabbrica e immette sul mercato dell'Unione nel marzo 2027 una batteria di trazione per biciclette a pedalata assistita, venduta come ricambio e ai costruttori di biciclette.</p>
+<table><thead><tr><th>Caratteristica</th><th>Valore</th></tr></thead><tbody>
+<tr><td>Modello</td><td>EX-36-134</td></tr>
+<tr><td>Categoria</td><td>Batteria per mezzi di trasporto leggeri (LMT): sigillata, peso inferiore a 25 kg, progettata per la trazione di una bicicletta a pedalata assistita</td></tr>
+<tr><td>Composizione chimica</td><td>Litio-ione NMC (nichel-manganese-cobalto)</td></tr>
+<tr><td>Configurazione</td><td>40 elementi cilindrici 21700 in configurazione 10S4P, con sistema di gestione delle batterie integrato</td></tr>
+<tr><td>Tensione nominale e capacità</td><td>36 V; 13,4 Ah (circa 482 Wh)</td></tr>
+<tr><td>Peso</td><td>3,1 kg</td></tr>
+</tbody></table>
+<p><strong>Esito normativo.</strong> Ogni batteria LMT immessa sul mercato dal 18 febbraio 2027 richiede un passaporto, senza soglie di capacità (articolo 77, paragrafo 1); il codice QR deve dare accesso al passaporto (articolo 13, paragrafo 6, lettera a)). Azienda Esempio è il fabbricante e l'operatore economico che immette la batteria sul mercato: attribuisce l'identificativo univoco, registra il passaporto nel registro della Commissione ed è responsabile della correttezza dei dati, anche se affida la gestione tecnica a un fornitore di servizi (articolo 77, paragrafi 3 e 4). Se un costruttore di biciclette si limita a installare la batteria, la responsabilità resta ad Azienda Esempio. Si vedano la Sezione 6 e la Sezione 25.10.</p>
+<h2>26.2 Identificazione GS1</h2>
+<table><thead><tr><th>Cosa si identifica</th><th>Chiave GS1</th><th>Valore d'esempio</th></tr></thead><tbody>
+<tr><td>Modello di batteria (unità commerciale)</td><td>GTIN</td><td>09506000134352</td></tr>
+<tr><td>Singola batteria</td><td>GTIN + numero di serie</td><td>(01) 09506000134352 (21) EX27-000184</td></tr>
+<tr><td>Fabbricante e operatore responsabile del passaporto</td><td>GLN (soggetto)</td><td>9506000000008</td></tr>
+<tr><td>Stabilimento di fabbricazione</td><td>GLN (luogo)</td><td>9506000000015</td></tr>
+<tr><td>Identificativo univoco del passaporto</td><td>URI GS1 Digital Link</td><td><code>https://id.example.com/01/09506000134352/21/EX27-000184</code></td></tr>
+<tr><td>Pallet di spedizione</td><td>SSCC</td><td>(00) 395060000000000016 – contiene 48 batterie, registrate singolarmente</td></tr>
+</tbody></table>
+<p>Il GTIN identifica il modello e porta con sé i dati comuni a tutte le batterie EX-36-134; il numero di serie distingue la singola batteria a cui è collegato il passaporto. Lo stesso URI, senza la parte <code>/21/…</code>, identifica il modello e può rimandare alla scheda prodotto pubblica. Si veda la Sezione 12.</p>
+<h2>26.3 L'etichetta sulla batteria</h2>
+<p>Sull'involucro della batteria, in modo visibile, leggibile e indelebile (articolo 13, paragrafo 7), il fabbricante riporta:</p>
+<ul>
+<li>il <strong>codice QR</strong> che codifica l'URI GS1 Digital Link con GTIN e numero di serie, con contrasto e dimensioni adeguati alla lettura con un normale smartphone (allegato VI, parte C);</li>
+<li>il <strong>testo leggibile</strong> sotto il codice: (01) 09506000134352 (21) EX27-000184;</li>
+<li>le informazioni dell'<strong>etichetta generale</strong> (fabbricante, categoria, identificazione, luogo e data di fabbricazione, peso, capacità, composizione chimica, sostanze pericolose, agente estinguente, materie prime critiche) e il <strong>simbolo della raccolta differenziata</strong>;</li>
+<li>la <strong>marcatura CE</strong>, che resta obbligatoria anche se la dichiarazione di conformità è accessibile tramite il codice QR.</li>
+</ul>
+<p>Scansionando il codice QR, chiunque arriva alla parte pubblica del passaporto. Un riparatore o un riciclatore autorizzato, dopo l'autenticazione, accede anche alle informazioni riservate. Si vedano la Sezione 13 e la Sezione 18.9.</p>
+<h2>26.4 Il passaporto: informazioni pubbliche del modello</h2>
+<p>Questi dati sono uguali per tutte le batterie del modello EX-36-134 e possono essere gestiti una sola volta come dati anagrafici collegati al GTIN. I data point non richiesti a febbraio 2027 o non applicabili alle batterie LMT (16–23, 25, 33, 45) non sono riportati: si veda la Sezione 25.9.</p>
+<table><thead><tr><th>Data point</th><th>Valore d'esempio</th><th>Origine del dato</th></tr></thead><tbody>
+<tr><td>1. Identificativo univoco</td><td><code>https://id.example.com/01/09506000134352/21/EX27-000184</code></td><td>GTIN + numero di serie (singola batteria)</td></tr>
+<tr><td>2. Responsabile del passaporto</td><td>Azienda Esempio S.r.l.</td><td>Anagrafica del soggetto collegata al GLN 9506000000008</td></tr>
+<tr><td>3. Fabbricante</td><td>Azienda Esempio S.r.l.</td><td>Anagrafica del soggetto (GLN)</td></tr>
+<tr><td>4. Indirizzo postale di contatto</td><td>Via dell'Esempio 10, 00000 Città Esempio (XX), Italia</td><td>Anagrafica del soggetto (GLN)</td></tr>
+<tr><td>5. Sito web ed e-mail</td><td>www.example.com · info@example.com</td><td>Anagrafica del soggetto (GLN)</td></tr>
+<tr><td>6. Categoria</td><td>Batteria per mezzi di trasporto leggeri (LMT)</td><td>Dati anagrafici del GTIN</td></tr>
+<tr><td>7. Identificazione del modello e numero di serie</td><td>Modello EX-36-134 · GTIN 09506000134352 · numero di serie EX27-000184</td><td>GTIN e registro di produzione</td></tr>
+<tr><td>8. Luogo di fabbricazione</td><td>Città Esempio, Regione Esempio, Italia</td><td>Registro di produzione; stabilimento identificato con GLN 9506000000015</td></tr>
+<tr><td>9. Data di fabbricazione</td><td>03/2027</td><td>Registro di produzione della singola unità</td></tr>
+<tr><td>10. Peso</td><td>3,1 kg</td><td>Dati anagrafici del GTIN</td></tr>
+<tr><td>11. Capacità</td><td>13,4 Ah</td><td>Dati anagrafici del GTIN</td></tr>
+<tr><td>12. Composizione chimica</td><td>Litio-ione NMC</td><td>Dati anagrafici del GTIN</td></tr>
+<tr><td>13. Sostanze pericolose (diverse da Hg, Cd, Pb)</td><td>Esafluorofosfato di litio (LiPF<sub>6</sub>) nell'elettrolita</td><td>Dati anagrafici del GTIN</td></tr>
+<tr><td>14. Agente estinguente utilizzabile</td><td>Acqua in grande quantità per il raffreddamento</td><td>Dati anagrafici del GTIN</td></tr>
+<tr><td>15. Materie prime critiche oltre lo 0,1 % in peso</td><td>Cobalto, grafite naturale, litio, nichel</td><td>Dati anagrafici del GTIN</td></tr>
+<tr><td>24. Quota di contenuto rinnovabile</td><td>0 %</td><td>Dati anagrafici del GTIN</td></tr>
+<tr><td>26. Tensione minima</td><td>30,0 V (da 0 a 45 °C)</td><td>Scheda tecnica del modello</td></tr>
+<tr><td>27. Tensione nominale</td><td>36,0 V</td><td>Scheda tecnica del modello</td></tr>
+<tr><td>28. Tensione massima</td><td>42,0 V</td><td>Scheda tecnica del modello</td></tr>
+<tr><td>29. Capacità di potenza originaria</td><td>750 W</td><td>Scheda tecnica del modello</td></tr>
+<tr><td>30. Limiti di potenza</td><td>750 W (da 10 a 40 °C); 400 W (da 0 a 10 °C)</td><td>Scheda tecnica del modello</td></tr>
+<tr><td>31. Durata di vita prevista in cicli</td><td>1 000 cicli</td><td>Rapporto di prova del modello</td></tr>
+<tr><td>32. Prova di riferimento</td><td>Cicli completi di carica a 0,5C e scarica a 1C a 25 °C, fino all'80 % della capacità iniziale</td><td>Rapporto di prova del modello</td></tr>
+<tr><td>34. Temperatura sopportabile a riposo</td><td>Da −20 a +45 °C (prova di stoccaggio di 30 giorni)</td><td>Rapporto di prova del modello</td></tr>
+<tr><td>35. Garanzia commerciale sulla durata di calendario</td><td>24 mesi</td><td>Condizioni commerciali</td></tr>
+<tr><td>36. Efficienza di andata e ritorno iniziale</td><td>95 %</td><td>Rapporto di prova del modello</td></tr>
+<tr><td>37. Efficienza di andata e ritorno al 50 % della durata in cicli</td><td>93 %</td><td>Rapporto di prova del modello</td></tr>
+<tr><td>38. Resistenza interna</td><td>Elemento: 22 mΩ · pacco: 160 mΩ</td><td>Rapporto di prova del modello</td></tr>
+<tr><td>39. Tasso C di carica della prova in cicli</td><td>0,5</td><td>Rapporto di prova del modello</td></tr>
+<tr><td>40. Tasso C di scarica della prova in cicli (facoltativo)</td><td>1</td><td>Rapporto di prova del modello</td></tr>
+<tr><td>41. Simbolo della raccolta differenziata (art. 13, par. 4)</td><td>Sì</td><td>Dati anagrafici del GTIN</td></tr>
+<tr><td>42. Simboli Cd o Pb (art. 13, par. 5)</td><td>Nessuno: cadmio e piombo sotto le soglie</td><td>Dati anagrafici del GTIN</td></tr>
+<tr><td>43. Dichiarazione di conformità UE</td><td>Collegamento alla dichiarazione in PDF</td><td>Risorsa collegata al GTIN tramite il resolver GS1 Digital Link</td></tr>
+<tr><td>44. Prevenzione e gestione dei rifiuti</td><td>Indicazioni su uso e conservazione per prolungare la durata, punti di raccolta e ritiro gratuito presso i distributori, rischi delle batterie al litio, significato dei simboli</td><td>Risorsa collegata al GTIN tramite il resolver</td></tr>
+</tbody></table>
+<h2>26.5 Il passaporto: informazioni riservate</h2>
+<table><thead><tr><th>Data point</th><th>Valore d'esempio</th><th>Chi vi accede</th></tr></thead><tbody>
+<tr><td>46. Composizione dettagliata</td><td>Catodo NMC 811; anodo in grafite naturale e sintetica; elettrolita LiPF<sub>6</sub> in carbonati organici</td><td>Persone con interesse legittimo, organismi notificati, autorità, Commissione</td></tr>
+<tr><td>47. Codici dei componenti e fonti dei ricambi</td><td>Collegamento all'elenco dei componenti sostituibili (BMS, connettore, involucro) e ai recapiti per i ricambi</td><td>Persone con interesse legittimo, organismi notificati, autorità, Commissione</td></tr>
+<tr><td>48. Informazioni sullo smontaggio</td><td>Collegamento a esplosi, sequenze di smontaggio, 12 viti a testa esalobata, attrezzi necessari, avvertenze; 40 elementi in configurazione 10S4P</td><td>Persone con interesse legittimo, organismi notificati, autorità, Commissione</td></tr>
+<tr><td>49. Misure di sicurezza</td><td>Collegamento alle istruzioni di sicurezza per manipolazione, trasporto e stoccaggio</td><td>Persone con interesse legittimo, organismi notificati, autorità, Commissione</td></tr>
+<tr><td>50. Risultati dei rapporti di prova</td><td>Collegamento ai rapporti di prova di conformità</td><td>Solo organismi notificati, autorità e Commissione</td></tr>
+</tbody></table>
+<h2>26.6 Il passaporto: dati della singola batteria nel tempo</h2>
+<p>La tabella mostra come cambiano i dati della batteria EX27-000184 in tre momenti: alla prima immissione sul mercato, a un intervento di assistenza dopo due anni d'uso e alla valutazione di fine vita. I valori provengono dal sistema di gestione delle batterie, letti in officina o al centro di raccolta. Coerentemente con le indicazioni della Commissione, i parametri di prestazione e durabilità (51–60) sono aggiornati al cambio di stato, mentre stato di salute e dati d'uso sono aggiornati quando la batteria viene controllata.</p>
+<table><thead><tr><th>Data point</th><th>Immissione sul mercato (03/2027)</th><th>Assistenza (05/2029)</th><th>Fine vita (06/2033)</th></tr></thead><tbody>
+<tr><td>51. Capacità nominale</td><td>13,4 Ah</td><td>13,4 Ah</td><td>13,4 Ah</td></tr>
+<tr><td>52. Riduzione della capacità</td><td>0 %</td><td>Invariato (nessun cambio di stato)</td><td>24 %</td></tr>
+<tr><td>53. Potenza</td><td>750 W</td><td>Invariato</td><td>610 W</td></tr>
+<tr><td>54. Riduzione della potenza</td><td>0 %</td><td>Invariato</td><td>19 %</td></tr>
+<tr><td>55. Resistenza interna</td><td>160 mΩ</td><td>Invariato</td><td>228 mΩ</td></tr>
+<tr><td>56. Aumento della resistenza interna</td><td>0 %</td><td>Invariato</td><td>43 %</td></tr>
+<tr><td>57. Efficienza di andata e ritorno</td><td>95 %</td><td>Invariato</td><td>91 %</td></tr>
+<tr><td>58. Riduzione dell'efficienza di andata e ritorno</td><td>0 %</td><td>Invariato</td><td>4 %</td></tr>
+<tr><td>59. Durata di vita prevista in cicli</td><td>1 000 cicli</td><td>1 000 cicli</td><td>1 000 cicli</td></tr>
+<tr><td>60. Durata di vita prevista in anni</td><td>5 anni</td><td>5 anni</td><td>5 anni</td></tr>
+<tr><td>62. Capacità residua</td><td>13,4 Ah</td><td>12,5 Ah</td><td>10,2 Ah</td></tr>
+<tr><td>63. Capacità di potenza residua</td><td>750 W</td><td>715 W</td><td>610 W</td></tr>
+<tr><td>64. Efficienza di andata e ritorno residua</td><td>95 %</td><td>94 %</td><td>91 %</td></tr>
+<tr><td>65. Evoluzione dell'autoscarica</td><td>—</td><td>2,3 % all'anno (rilevato il 12/05/2029)</td><td>3,1 % all'anno (rilevato il 20/06/2033)</td></tr>
+<tr><td>66. Resistenza ohmica</td><td>150 mΩ</td><td>171 mΩ</td><td>214 mΩ</td></tr>
+<tr><td>67. Stato della batteria</td><td>Originale</td><td>Originale</td><td>Rifiuto</td></tr>
+<tr><td>68. Cicli di carica e scarica</td><td>— (non ancora in uso)</td><td>312</td><td>1 080</td></tr>
+<tr><td>69. Eventi negativi</td><td>—</td><td>14/09/2028: caduta della bicicletta; nessun danno rilevato all'ispezione</td><td>Nessun nuovo evento</td></tr>
+<tr><td>70. Condizioni ambientali di funzionamento</td><td>—</td><td>Istogramma delle temperature: 8 % sotto 10 °C, 62 % tra 10 e 25 °C, 30 % tra 25 e 35 °C</td><td>Istogramma aggiornato</td></tr>
+<tr><td>71. Stato di carica</td><td>—</td><td>Istogramma dello stato di carica: 18 % sotto il 20 %, 64 % tra il 20 e l'80 %, 18 % sopra l'80 %</td><td>Istogramma aggiornato</td></tr>
+</tbody></table>
+<p>Il data point 61 (SOCE) riguarda solo le batterie EV e non si applica a questa batteria.</p>
+<h2>26.7 Il ciclo di vita, evento per evento</h2>
+<table><thead><tr><th>Momento</th><th>Cosa succede al passaporto</th><th>Supporto GS1</th></tr></thead><tbody>
+<tr><td>Fabbricazione (03/2027)</td><td>Azienda Esempio assegna il numero di serie, crea il passaporto con i dati del modello e i valori iniziali della singola batteria e lo registra nel registro della Commissione.</td><td>Attivazione dell'identificativo GTIN + numero di serie; evento EPCIS di attivazione (<em>commissioning</em>) nello stabilimento identificato dal GLN.</td></tr>
+<tr><td>Spedizione</td><td>Il passaporto non cambia. Azienda Esempio conserva le informazioni su destinatari, modelli e quantità (articolo 46).</td><td>SSCC del pallet aggregato ai numeri di serie contenuti; eventi EPCIS di aggregazione e spedizione.</td></tr>
+<tr><td>Installazione su una bicicletta</td><td>Il passaporto resta della batteria. Il costruttore che si limita a installarla non ne diventa responsabile.</td><td>Associazione tra il numero di serie della batteria e quello della bicicletta (evento EPCIS di associazione), senza confondere i due identificativi.</td></tr>
+<tr><td>Assistenza (05/2029)</td><td>L'officina legge i dati del sistema di gestione delle batterie e, su incarico scritto di Azienda Esempio, aggiorna stato di salute, cicli ed eventi negativi.</td><td>Evento EPCIS di ispezione con data, luogo (GLN dell'officina) e riferimento alla batteria.</td></tr>
+<tr><td>Fine vita (06/2033)</td><td>La batteria diventa rifiuto: lo stato passa a «rifiuto» e la responsabilità del passaporto passa al produttore, all'organizzazione per l'adempimento della responsabilità del produttore o al gestore di rifiuti (articolo 77, paragrafo 7).</td><td>Eventi EPCIS di raccolta e consegna; SSCC del contenitore di raccolta.</td></tr>
+<tr><td>Riciclaggio</td><td>Dopo il riciclaggio il passaporto cessa di esistere (articolo 77, paragrafo 8).</td><td>Evento EPCIS di trasformazione presso l'impianto di riciclaggio.</td></tr>
+</tbody></table>
+<p>Se invece la batteria fosse preparata per il riutilizzo o rifabbricata, servirebbe un nuovo passaporto collegato a quello originario, a cura dell'operatore che la immette di nuovo sul mercato (articolo 77, paragrafo 7). Se fosse destinata a un uso diverso, ad esempio lo stoccaggio fisso di energia, diventerebbe una batteria industriale: con una capacità di circa 0,5 kWh, quindi pari o inferiore a 2 kWh, non sarebbe più soggetta all'obbligo di passaporto, ma resterebbero i requisiti dell'articolo 13, paragrafo 9. Si vedano la Sezione 17 e la Sezione 20.9.</p>
+<h2>26.8 Lista di controllo per il fabbricante</h2>
+<p>Ogni passo rimanda alle sezioni delle linee guida che lo approfondiscono e al punto corrispondente di questo esempio.</p>
+<ol class="checklist">
+<li><span class="check-step">Confermare la categoria della batteria e che il passaporto è richiesto.</span><span class="check-links">Approfondisci: <a href="04-battery-categories.html">4. Determinare la categoria</a> · <a href="03-how-to-use-this-guideline.html#3-4-determinare-se-e-richiesto-un-passaporto-della-batteria">3.4 Passaporto richiesto?</a> · <a href="06-lmt-batteries.html#6-1-obbligo-di-passaporto-della-batteria">6.1 Batterie LMT</a> · <a href="25-battery-passport-data-points.html#25-10-indicazioni-operative-dalle-faq-della-commissione">25.10 Indicazioni della Commissione</a></span></li>
+<li><span class="check-step">Assegnare il GTIN al modello e definire lo schema dei numeri di serie.</span><span class="check-links">Approfondisci: <a href="12-battery-and-grouping-identification.html#12-2-la-batteria-come-unita-commerciale">12.2 La batteria come unità commerciale</a> · <a href="12-battery-and-grouping-identification.html#12-6-scegliere-il-livello-di-identificazione-appropriato">12.6 Livello di identificazione</a> · <a href="18-gs1-implementation-models.html#18-6-implementazione-a-livello-di-singola-unita">18.6 Livello di singola unità</a> · <a href="#26-2-identificazione-gs1">26.2 Nell'esempio</a></span></li>
+<li><span class="check-step">Raccogliere i dati del modello (data point 3–44 applicabili) come dati anagrafici collegati al GTIN, indicando per ciascuno fonte e responsabile.</span><span class="check-links">Approfondisci: <a href="25-battery-passport-data-points.html#25-3-identificazione-fabbricante-e-fabbricazione">25.3–25.6 Data point pubblici</a> · <a href="18-gs1-implementation-models.html#18-4-implementazione-a-livello-di-modello">18.4 Livello di modello</a> · <a href="19-supply-chain-traceability.html#19-11-gdsn-e-scambio-dei-dati-anagrafici">19.11 GDSN e dati anagrafici</a> · <a href="#26-4-il-passaporto-informazioni-pubbliche-del-modello">26.4 Nell'esempio</a> · <a href="esempio-passaporto.html#generale">Pagina dimostrativa</a></span></li>
+<li><span class="check-step">Predisporre le risorse riservate (data point 46–50) e definire chi può accedervi.</span><span class="check-links">Approfondisci: <a href="25-battery-passport-data-points.html#25-7-informazioni-ad-accesso-riservato">25.7 Informazioni riservate</a> · <a href="25-battery-passport-data-points.html#25-2-come-leggere-le-tabelle">25.2 Livelli di accesso</a> · <a href="#26-5-il-passaporto-informazioni-riservate">26.5 Nell'esempio</a> · <a href="esempio-passaporto.html#riservate">Pagina dimostrativa</a></span></li>
+<li><span class="check-step">Costruire l'URI GS1 Digital Link, codificarlo nel QR code e verificarne la leggibilità sull'etichetta.</span><span class="check-links">Approfondisci: <a href="13-labelling-and-qr-codes.html#13-7-uri-gs1-digital-link">13.7 URI GS1 Digital Link</a> · <a href="13-labelling-and-qr-codes.html#13-5-codici-qr-per-le-batterie-che-richiedono-un-passaporto">13.5 QR per batterie con passaporto</a> · <a href="13-labelling-and-qr-codes.html#13-6-opzioni-di-posizionamento-del-codice-qr">13.6 Posizionamento</a> · <a href="#26-3-l-etichetta-sulla-batteria">26.3 Nell'esempio</a></span></li>
+<li><span class="check-step">Configurare il resolver per indirizzare verso la parte pubblica e verso le risorse ad accesso controllato.</span><span class="check-links">Approfondisci: <a href="13-labelling-and-qr-codes.html#13-8-resolver-e-collegamento-a-una-risorsa-web">13.8 Resolver</a> · <a href="18-gs1-implementation-models.html#18-9-implementazione-gs1-digital-link-per-piu-tipologie-di-utenti">18.9 Più tipologie di utenti</a> · <a href="25-battery-passport-data-points.html#25-11-implicazioni-per-l-implementazione-gs1">25.11 Implicazioni GS1</a></span></li>
+<li><span class="check-step">Creare il passaporto di ogni batteria all'immissione sul mercato e registrarlo nel registro della Commissione.</span><span class="check-links">Approfondisci: <a href="18-gs1-implementation-models.html#18-8-implementazione-del-passaporto-della-batteria">18.8 Implementazione del passaporto</a> · <a href="25-battery-passport-data-points.html#25-10-indicazioni-operative-dalle-faq-della-commissione">25.10 Registro e ospitalità</a> · <a href="#26-7-il-ciclo-di-vita-evento-per-evento">26.7 Nell'esempio</a></span></li>
+<li><span class="check-step">Definire come e quando aggiornare i dati dinamici (data point 51–71) e chi è autorizzato per iscritto ad aggiornarli.</span><span class="check-links">Approfondisci: <a href="25-battery-passport-data-points.html#25-8-dati-della-singola-batteria">25.8 Dati della singola batteria</a> · <a href="19-supply-chain-traceability.html#19-10-come-si-utilizza-epcis">19.10 Come si utilizza EPCIS</a> · <a href="#26-6-il-passaporto-dati-della-singola-batteria-nel-tempo">26.6 Nell'esempio</a> · <a href="esempio-passaporto.html#stato">Pagina dimostrativa</a></span></li>
+<li><span class="check-step">Pianificare la continuità del servizio e il passaggio di responsabilità a fine vita o dopo un'operazione circolare.</span><span class="check-links">Approfondisci: <a href="17-reuse-repurposing-and-remanufacturing.html#17-5-conseguenze-per-il-passaporto-della-batteria">17.5 Conseguenze per il passaporto</a> · <a href="17-reuse-repurposing-and-remanufacturing.html#17-8-collegare-l-identita-originaria-e-quella-successiva-della-batteria">17.8 Collegare le identità</a> · <a href="16-waste-treatment-and-recycling.html">16. Raccolta e riciclaggio</a> · <a href="#26-7-il-ciclo-di-vita-evento-per-evento">26.7 Nell'esempio</a></span></li>
+</ol>
