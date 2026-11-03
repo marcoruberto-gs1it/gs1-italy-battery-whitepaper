@@ -1,0 +1,103 @@
+{
+  "@context": "https://repository.product-passport.ec.europa.eu/product/batteries/subgroup/lmt/1.0.0/contexts/lmt-context.jsonld",
+  "@id": "https://id.example.com/01/09506000134352/21/EX27-000184",
+  "@type": "dpp:DigitalProductPassport",
+  "contentSpecificationIds": [
+    "https://repository.product-passport.ec.europa.eu/core/1.0.0",
+    "https://repository.product-passport.ec.europa.eu/product/batteries/1.0.0",
+    "https://repository.product-passport.ec.europa.eu/product/batteries/subgroup/lmt/1.0.0"
+  ],
+  "ratedCapacity": {
+    "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#ampereHour",
+    "value": 13.4
+  },
+  "capacityFade": {
+    "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#percent",
+    "value": 0
+  },
+  "powerCapability": {
+    "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#watt",
+    "value": 750
+  },
+  "powerFade": {
+    "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#percent",
+    "value": 0
+  },
+  "internalResistance": {
+    "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#ohm",
+    "value": 0.16
+  },
+  "internalResistanceIncrease": {
+    "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#percent",
+    "value": 0
+  },
+  "roundTripEnergyEfficiency": {
+    "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#percent",
+    "value": 95
+  },
+  "roundTripEnergyEfficiencyFade": {
+    "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#percent",
+    "value": 0
+  },
+  "expectedLifetimeCyclesRest": 1000,
+  "expectedLifetimeYears": 5,
+  "remainingCapacity": {
+    "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#ampereHour",
+    "value": 12.5
+  },
+  "remainingPowerCapability": {
+    "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#watt",
+    "value": 715
+  },
+  "remainingRoundTripEfficiency": {
+    "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#percent",
+    "value": 94
+  },
+  "selfDischargingRateSet": {
+    "selfDischargingRate": [
+      {
+        "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#percent",
+        "value": 2.3
+      }
+    ],
+    "recordedTime": "2029-05-12T10:30:00Z"
+  },
+  "ohmicResistance": {
+    "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#ohm",
+    "value": 0.171
+  },
+  "batteryStatus": "https://repository.product-passport.ec.europa.eu/product/batteries/vocabs/battery-status#original",
+  "numberOfChargingCycles": [312],
+  "numberOfDischargingCycles": [312],
+  "negativeEvents": {
+    "it-IT": "14/09/2028: caduta della bicicletta; nessun danno rilevato all'ispezione"
+  },
+  "environmentalConditionHistogramSet": {
+    "environmentalConditionHistogram": [
+      {
+        "observedCharacteristic": "https://repository.product-passport.ec.europa.eu/core/vocabs/observed-characteristic#temperature",
+        "binRangeUnit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#degreeCelsius",
+        "binValueUnit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#percent",
+        "bin": [
+          { "lowerBound": -20, "upperBound": 10, "binValue": 8 },
+          { "lowerBound": 10, "upperBound": 25, "binValue": 62 },
+          { "lowerBound": 25, "upperBound": 35, "binValue": 30 },
+          { "lowerBound": 35, "upperBound": 45, "binValue": 0 }
+        ]
+      }
+    ]
+  },
+  "stateOfChargeHistogram": [
+    {
+      "binRangeUnit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#percent",
+      "binValueUnit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#percent",
+      "bin": [
+        { "lowerBound": 0, "upperBound": 20, "binValue": 18 },
+        { "lowerBound": 20, "upperBound": 40, "binValue": 14 },
+        { "lowerBound": 40, "upperBound": 60, "binValue": 22 },
+        { "lowerBound": 60, "upperBound": 80, "binValue": 28 },
+        { "lowerBound": 80, "upperBound": 100, "binValue": 18 }
+      ]
+    }
+  ]
+}

@@ -6,12 +6,16 @@ Versione italiana, a cura di GS1 Italy, delle linee guida GS1 in Europe sull'imp
 ## Struttura
 
 ```
-index.html, 01-…24-*.html, 404.html   pagine generate (non modificare a mano)
+index.html, 01-…26-*.html, 404.html   pagine generate (non modificare a mano)
+esempio-passaporto.html                pagina dimostrativa del passaporto (generata da _src/esempio-passaporto.html)
 assets/style.css                       stile (palette GS1, tema chiaro/scuro, responsive)
 assets/main.js                         menu mobile, cambio tema, indice "In questa pagina", ricerca (⌘K / Ctrl+K)
 assets/search-index.js                 indice di ricerca generato dal build (non modificare a mano)
+assets/jsonld/                         viste JSON-LD dell'esempio, copiate dal build (non modificare a mano)
 assets/img/                            logo e favicon ufficiali GS1 Italy (da gs1it.org)
 _src/pagine/*.html                     contenuti in italiano: solo il corpo di ogni pagina
+_src/esempio-passaporto.html           pagina dimostrativa (layout autonomo)
+_src/jsonld/*.jsonld                   passaporto d'esempio in JSON-LD, una vista per livello di accesso
 _src/build.py                          applica il layout comune e genera le pagine
 ```
 
@@ -25,3 +29,7 @@ python3 _src/build.py
 ```
 
 Menu laterale, titoli di navigazione e testo del piè di pagina si trovano in `_src/build.py` (`NAV`, `layout`).
+
+## Passaporto d'esempio in JSON-LD
+
+I file in `_src/jsonld/` seguono gli artefatti semantici pubblicati dalla Commissione europea per il DPP Registry (release 1.0.0: core, batterie, sottogruppo LMT). Ci sono quattro viste, `pub`, `res1`, `res2` e `res3`, che corrispondono ai livelli di accesso dell'allegato XIII. Il build le incorpora in `esempio-passaporto.html` e le copia in `assets/jsonld/`. Dopo una modifica, vanno verificate di nuovo con i JSON Schema e le shape SHACL ufficiali.

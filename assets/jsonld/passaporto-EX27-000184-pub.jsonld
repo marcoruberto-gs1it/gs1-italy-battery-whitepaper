@@ -1,0 +1,201 @@
+{
+  "@context": "https://repository.product-passport.ec.europa.eu/product/batteries/subgroup/lmt/1.0.0/contexts/lmt-context.jsonld",
+  "@id": "https://id.example.com/01/09506000134352/21/EX27-000184",
+  "@type": "dpp:DigitalProductPassport",
+  "digitalProductPassportId": "urn:uuid:7c9e6679-7425-40de-944b-e07fc1f90ae7",
+  "uniqueProductIdentifier": "https://id.example.com/01/09506000134352/21/EX27-000184",
+  "granularity": "https://repository.product-passport.ec.europa.eu/core/vocabs/granularity-level#item",
+  "dppStatus": "https://repository.product-passport.ec.europa.eu/core/vocabs/instance-status#validStatus",
+  "lastUpdate": "2029-05-12T10:30:00Z",
+  "contentSpecificationIds": [
+    "https://repository.product-passport.ec.europa.eu/core/1.0.0",
+    "https://repository.product-passport.ec.europa.eu/product/batteries/1.0.0",
+    "https://repository.product-passport.ec.europa.eu/product/batteries/subgroup/lmt/1.0.0"
+  ],
+  "registrantIdentity": "Azienda Esempio S.r.l.",
+  "manufacturerIdentification": {
+    "manufacturerName": "Azienda Esempio S.r.l.",
+    "manufacturerTrademark": "Esempio"
+  },
+  "manufacturerPostalAddress": "Via dell'Esempio 10, 00000 Città Esempio (XX), Italia",
+  "manufacturerContactDetails": {
+    "manufacturerWebsite": "https://www.example.com",
+    "manufacturerEmail": "mailto:info@example.com"
+  },
+  "batteryCategory": "https://repository.product-passport.ec.europa.eu/product/batteries/vocabs/battery-category#lightMeansOfTransportBattery",
+  "batteryIdentification": {
+    "serialNumber": "EX27-000184",
+    "productNumber": "09506000134352"
+  },
+  "manufacturingPlace": {
+    "manufacturingCity": "Città Esempio",
+    "manufacturingRegion": "Regione Esempio",
+    "manufacturingCountry": "ITA"
+  },
+  "manufacturingDate": "2027-03",
+  "batteryWeight": {
+    "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#kilogram",
+    "value": 3.1
+  },
+  "batteryCapacity": {
+    "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#ampereHour",
+    "value": 13.4
+  },
+  "batteryChemistry": [
+    "https://repository.product-passport.ec.europa.eu/product/batteries/vocabs/battery-chemistry#lithiumIonNMC"
+  ],
+  "hazardousSubstances": [
+    "Esafluorofosfato di litio (LiPF6) nell'elettrolita"
+  ],
+  "extinguishingAgent": {
+    "it-IT": "Acqua in grande quantità per il raffreddamento"
+  },
+  "criticalRawMaterials": [
+    "https://repository.product-passport.ec.europa.eu/core/vocabs/critical-raw-material#cobalt",
+    "https://repository.product-passport.ec.europa.eu/core/vocabs/critical-raw-material#graphite",
+    "https://repository.product-passport.ec.europa.eu/core/vocabs/critical-raw-material#lithium",
+    "https://repository.product-passport.ec.europa.eu/core/vocabs/critical-raw-material#nickelBatteryGrade"
+  ],
+  "renewableContentShare": {
+    "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#percent",
+    "value": 0
+  },
+  "minimalVoltage": {
+    "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#volt",
+    "value": 30.0,
+    "valueRange": {
+      "observedCharacteristic": "https://repository.product-passport.ec.europa.eu/core/vocabs/observed-characteristic#temperature",
+      "lowerBound": 0,
+      "upperBound": 45,
+      "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#degreeCelsius"
+    }
+  },
+  "nominalVoltage": {
+    "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#volt",
+    "value": 36.0,
+    "valueRange": {
+      "observedCharacteristic": "https://repository.product-passport.ec.europa.eu/core/vocabs/observed-characteristic#temperature",
+      "lowerBound": 0,
+      "upperBound": 45,
+      "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#degreeCelsius"
+    }
+  },
+  "maximumVoltage": {
+    "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#volt",
+    "value": 42.0,
+    "valueRange": {
+      "observedCharacteristic": "https://repository.product-passport.ec.europa.eu/core/vocabs/observed-characteristic#temperature",
+      "lowerBound": 0,
+      "upperBound": 45,
+      "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#degreeCelsius"
+    }
+  },
+  "originalPowerCapability": {
+    "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#watt",
+    "value": 750
+  },
+  "powerLimit": [
+    {
+      "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#watt",
+      "value": 750,
+      "valueRange": {
+        "observedCharacteristic": "https://repository.product-passport.ec.europa.eu/core/vocabs/observed-characteristic#temperature",
+        "lowerBound": 10,
+        "upperBound": 40,
+        "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#degreeCelsius"
+      }
+    },
+    {
+      "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#watt",
+      "value": 400,
+      "valueRange": {
+        "observedCharacteristic": "https://repository.product-passport.ec.europa.eu/core/vocabs/observed-characteristic#temperature",
+        "lowerBound": 0,
+        "upperBound": 10,
+        "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#degreeCelsius"
+      }
+    }
+  ],
+  "expectedLifetimeCycles": 1000,
+  "cycleLifeReferenceTest": {
+    "it-IT": "Cicli completi di carica a 0,5C e scarica a 1C a 25 °C, fino all'80 % della capacità iniziale"
+  },
+  "notInUseTemperatureRange": {
+    "notInUseTemperatureRangeTest": {
+      "it-IT": "Prova di stoccaggio di 30 giorni"
+    },
+    "valueRange": {
+      "observedCharacteristic": "https://repository.product-passport.ec.europa.eu/core/vocabs/observed-characteristic#temperature",
+      "lowerBound": -20,
+      "upperBound": 45,
+      "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#degreeCelsius"
+    }
+  },
+  "commercialWarrantyPeriod": 24,
+  "initialRoundTripEnergyEfficiency": {
+    "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#percent",
+    "value": 95
+  },
+  "roundTripEfficiencyAtHalfCycleLife": {
+    "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#percent",
+    "value": 93
+  },
+  "internalCellResistance": {
+    "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#ohm",
+    "value": 0.022
+  },
+  "internalPackResistance": {
+    "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#ohm",
+    "value": 0.16
+  },
+  "cycleLifeChargeCRate": {
+    "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#reciprocalHour",
+    "value": 0.5
+  },
+  "cycleLifeDischargeCRate": {
+    "unit": "https://repository.product-passport.ec.europa.eu/core/vocabs/measurement-unit#reciprocalHour",
+    "value": 1
+  },
+  "separateCollectionSymbol": true,
+  "chemicalSymbol": [
+    "https://repository.product-passport.ec.europa.eu/product/batteries/vocabs/battery-chemical-symbol#noneSymbol"
+  ],
+  "euDeclarationOfConformity": {
+    "resourceTitle": "Dichiarazione di conformità UE EX-36-134",
+    "contentType": "application/pdf",
+    "url": "https://www.example.com/documenti/Dichiarazione_UE_EX-36-134.pdf",
+    "language": "it-IT"
+  },
+  "wasteBatteryPreventionManagementInfo": {
+    "endUserRoleInWastePrevention": {
+      "it-IT": "Conservare la batteria tra 10 e 25 °C e caricarla al 40–60 % se inutilizzata a lungo, per prolungarne la durata."
+    },
+    "endUserRoleInSeparateCollection": {
+      "it-IT": "Non gettare la batteria nei rifiuti urbani: consegnarla ai punti di raccolta differenziata."
+    },
+    "separateCollectionPoints": {
+      "it-IT": "Elenco dei punti di raccolta: https://www.example.com/raccolta"
+    },
+    "takeBackCollectionPoints": {
+      "it-IT": "I distributori ritirano gratuitamente la batteria, senza obbligo di acquisto."
+    },
+    "preparationForReuseFacilities": {
+      "it-IT": "Centro autorizzato per la preparazione per il riutilizzo: Centro Esempio Riuso, Città Esempio."
+    },
+    "preparationForRepurposingFacilities": {
+      "it-IT": "Centro autorizzato per il cambio di destinazione: Centro Esempio Seconda Vita, Città Esempio."
+    },
+    "wasteBatteryTreatmentFacilities": {
+      "it-IT": "Impianto autorizzato di trattamento e riciclaggio: Riciclo Esempio, Città Esempio."
+    },
+    "wasteBatterySafetyInstructions": {
+      "it-IT": "Le batterie al litio danneggiate possono surriscaldarsi o incendiarsi: isolare i contatti e non aprire l'involucro."
+    },
+    "batteryLabelSymbolMeaning": {
+      "it-IT": "Il simbolo del bidone barrato indica la raccolta differenziata obbligatoria."
+    },
+    "batterySubstancesImpact": {
+      "it-IT": "Uno smaltimento scorretto può disperdere nell'ambiente l'elettrolita e i metalli contenuti, con effetti sul suolo, sull'acqua e sulla salute."
+    }
+  }
+}

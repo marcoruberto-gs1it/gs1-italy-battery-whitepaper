@@ -60,6 +60,10 @@ NAV = [
 
 PAGES = [p for _, items in NAV for p in items]
 
+# Viste JSON-LD della pagina dimostrativa: pubblica e riservate (allegato XIII, punti 1–4)
+JSONLD_VIEWS = ["pub", "res1", "res2", "res3"]
+JSONLD_PREFIX = "passaporto-EX27-000184"
+
 
 def slugify(text):
     text = unicodedata.normalize("NFKD", html.unescape(re.sub(r"<[^>]+>", "", text)))
@@ -235,9 +239,25 @@ def main():
     home, _ = process((SRC / "index.html").read_text(encoding="utf-8"))
     (ROOT / "index.html").write_text(layout(SITE_TITLE, home), encoding="utf-8")
 
-    # Pagina dimostrativa del passaporto (layout autonomo, copiata così com'è)
-    (ROOT / "esempio-passaporto.html").write_text(
-        (ROOT / "_src" / "esempio-passaporto.html").read_text(encoding="utf-8"), encoding="utf-8")
+    # Pagina dimostrativa del passaporto (layout autonomo). I documenti JSON-LD in _src/jsonld/
+    # (una vista per livello di accesso, come negli artefatti semantici della Commissione) sono
+    # incorporati nella pagina e pubblicati anche come file scaricabili in assets/jsonld/.
+    demo = (ROOT / "_src" / "esempio-passaporto.html").read_text(encoding="utf-8")
+    out_dir = ROOT / "assets" / "jsonld"
+    out_dir.mkdir(exist_ok=True)
+    for view in JSONLD_VIEWS:
+        text = (ROOT / "_src" / "jsonld" / f"{view}.jsonld").read_text(encoding="utf-8")
+        json.loads(text)  # interrompe la build se il file non è JSON valido
+        (out_dir / f"{JSONLD_PREFIX}-{view}.jsonld").write_text(text, encoding="utf-8")
+        safe = text.strip().replace("</", "<\\/")
+        demo = demo.replace(f"<!--JSONLD:{view}-->",
+                            f'<script type="application/json" id="jsonld-{view}">\n{safe}\n</script>')
+        if view == "pub":
+            # La vista pubblica è anche dichiarata come dato strutturato della pagina
+            demo = demo.replace("<!--JSONLD-HEAD-->", f'<script type="application/ld+json">\n{safe}\n</script>')
+    if "<!--JSONLD" in demo:
+        raise SystemExit("esempio-passaporto.html: segnaposto JSON-LD non sostituito")
+    (ROOT / "esempio-passaporto.html").write_text(demo, encoding="utf-8")
 
     not_found = ('<h1>Pagina non trovata</h1><p>La pagina richiesta non esiste o è stata spostata.</p>'
                  '<p><a href="index.html">Torna alla panoramica</a></p>')

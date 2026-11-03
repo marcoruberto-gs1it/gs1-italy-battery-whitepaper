@@ -1,0 +1,16 @@
+{
+  "@context": "https://repository.product-passport.ec.europa.eu/product/batteries/subgroup/lmt/1.0.0/contexts/lmt-context.jsonld",
+  "@id": "https://id.example.com/01/09506000134352/21/EX27-000184",
+  "@type": "dpp:DigitalProductPassport",
+  "contentSpecificationIds": [
+    "https://repository.product-passport.ec.europa.eu/core/1.0.0",
+    "https://repository.product-passport.ec.europa.eu/product/batteries/1.0.0",
+    "https://repository.product-passport.ec.europa.eu/product/batteries/subgroup/lmt/1.0.0"
+  ],
+  "complianceTestReportResults": {
+    "resourceTitle": "Rapporti di prova di conformità EX-36-134",
+    "contentType": "application/zip",
+    "url": "https://www.example.com/documenti/Rapporti_prova_EX-36-134.zip",
+    "language": "it-IT"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "@context": "https://repository.product-passport.ec.europa.eu/product/batteries/subgroup/lmt/1.0.0/contexts/lmt-context.jsonld",
+  "@id": "https://id.example.com/01/09506000134352/21/EX27-000184",
+  "@type": "dpp:DigitalProductPassport",
+  "contentSpecificationIds": [
+    "https://repository.product-passport.ec.europa.eu/core/1.0.0",
+    "https://repository.product-passport.ec.europa.eu/product/batteries/1.0.0",
+    "https://repository.product-passport.ec.europa.eu/product/batteries/subgroup/lmt/1.0.0"
+  ],
+  "detailedComposition": {
+    "it-IT": "Catodo NMC 811; anodo in grafite naturale e sintetica; elettrolita LiPF6 in carbonati organici"
+  },
+  "sparePartReplacementDetails": {
+    "resourceTitle": "Componenti sostituibili e ricambi EX-36-134",
+    "contentType": "application/pdf",
+    "url": "https://www.example.com/documenti/ricambi-EX-36-134.pdf",
+    "language": "it-IT"
+  },
+  "dismantlingInformation": {
+    "resourceTitle": "Informazioni sullo smontaggio EX-36-134",
+    "contentType": "application/pdf",
+    "url": "https://www.example.com/documenti/smontaggio-EX-36-134.pdf",
+    "language": "it-IT"
+  },
+  "safetyMeasures": {
+    "resourceTitle": "Misure di sicurezza EX-36-134",
+    "contentType": "application/pdf",
+    "url": "https://www.example.com/documenti/sicurezza-EX-36-134.pdf",
+    "language": "it-IT"
+  }
+}
