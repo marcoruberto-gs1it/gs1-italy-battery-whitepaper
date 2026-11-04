@@ -1235,16 +1235,41 @@ footer.foot p { margin: 0 0 6px; }
   });
   window.addEventListener('scroll', function () { tip.hidden = true; }, { passive: true });
 
-  // Evidenzia la sezione corrente nella barra di navigazione
+  // Evidenzia nella barra di navigazione la sezione corrente: quella cliccata, oppure, scorrendo,
+  // l'ultima sezione il cui inizio è salito sotto la barra. Le sezioni brevi e quelle in fondo alla
+  // pagina, che non possono arrivare in cima allo schermo, restano attive quando vengono cliccate.
   var links = Array.prototype.slice.call(document.querySelectorAll('.tabs a'));
-  if (!('IntersectionObserver' in window)) return;
-  var obs = new IntersectionObserver(function (entries) {
-    entries.forEach(function (en) {
-      if (!en.isIntersecting) return;
-      links.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id); });
-    });
-  }, { rootMargin: '-40% 0px -55% 0px' });
-  document.querySelectorAll('main section[id]').forEach(function (s) { obs.observe(s); });
+  var sections = Array.prototype.slice.call(document.querySelectorAll('main section[id]'));
+  var pinned = null;
+  function setActive(id) {
+    links.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + id); });
+  }
+  function spy() {
+    var atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+    if (pinned) {
+      var r = document.getElementById(pinned).getBoundingClientRect();
+      if (atBottom || (r.top < window.innerHeight && r.bottom > 0)) { setActive(pinned); return; }
+      pinned = null;
+    }
+    var current = sections[0];
+    sections.forEach(function (s) { if (s.getBoundingClientRect().top <= 90) current = s; });
+    if (atBottom) current = sections[sections.length - 1];
+    setActive(current.id);
+  }
+  links.forEach(function (a) {
+    a.addEventListener('click', function () { pinned = a.getAttribute('href').slice(1); setActive(pinned); });
+  });
+  ['wheel', 'touchstart', 'keydown'].forEach(function (ev) {
+    window.addEventListener(ev, function () { pinned = null; }, { passive: true });
+  });
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () { ticking = false; spy(); });
+  }, { passive: true });
+  if (location.hash && document.getElementById(location.hash.slice(1))) pinned = location.hash.slice(1);
+  spy();
 })();
 </script>
 </body>
