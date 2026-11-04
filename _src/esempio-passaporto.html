@@ -551,6 +551,7 @@ footer.foot p { margin: 0 0 6px; }
     <summary>Come sono costruiti questi dati</summary>
     <ul>
       <li>Il <code>@context</code> è quello del sottogruppo LMT, che importa il contesto delle batterie e quello core; l'indirizzo segue la struttura del repository della Commissione (<code>repository.product-passport.ec.europa.eu</code>) indicata negli artefatti ufficiali.</li>
+      <li>Due identificativi distinti: <code>uniqueProductIdentifier</code> identifica il prodotto, cioè questa batteria, con l'URI GS1 Digital Link codificato nel QR code; <code>digitalProductPassportId</code> identifica il passaporto stesso. Per quest'ultimo il modello richiede solo una stringa: qui si usa un URL HTTPS, come negli esempi della Commissione.</li>
       <li><code>contentSpecificationIds</code> dichiara le tre release a cui il passaporto è conforme: core, batterie e sottogruppo LMT, tutte nella versione 1.0.0.</li>
       <li>Granularità, stato, categoria, composizione chimica, materie prime critiche, simboli, stato della batteria e unità di misura sono espressi come IRI dei vocabolari controllati della Commissione. Le resistenze sono espresse in ohm, l'unica unità prevista dal vocabolario per questa grandezza.</li>
       <li>I testi liberi sono indicati per lingua (<code>it-IT</code>), come richiesto per i campi multilingua.</li>
