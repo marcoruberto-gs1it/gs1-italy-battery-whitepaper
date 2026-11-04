@@ -150,3 +150,33 @@
 <li><strong>Informazioni sui rifiuti (data point 44)</strong>: tutte le voci dell'articolo 74, paragrafo 1, lettere da a) a f), sono campi distinti e obbligatori.</li>
 </ul>
 <p>La <a href="esempio-passaporto.html#jsonld">pagina dimostrativa</a> mostra le quattro viste di questo esempio in formato JSON-LD, ciascuna visibile solo al profilo autorizzato, e permette di scaricarle. Le viste sono state verificate con i JSON Schema e le regole SHACL della release 1.0.0 pubblicate dalla Commissione.</p>
+<h2>26.10 La registrazione nel registro della Commissione</h2>
+<p>Il passaporto resta ospitato da Azienda Esempio; al registro vengono comunicati solo l'identificativo univoco e pochi dati di classificazione. La registrazione avviene tramite le API del registro, secondo la guida della Commissione per gli operatori economici (versione 1.0 del 30 ottobre 2026).</p>
+<p><strong>Prerequisiti.</strong> L'organizzazione deve aver completato la verifica prevista durante l'adesione al registro. Per un'integrazione da sistema a sistema serve un account di servizio con il ruolo «Register DPPs». L'account si autentica con il flusso OAuth 2.0 client credentials e una chiave privata (<code>private_key_jwt</code>): non sono ammessi segreti condivisi. L'organizzazione è ricavata dal token, quindi non va indicata nella richiesta.</p>
+<table><thead><tr><th>Passo</th><th>Cosa succede</th><th>Chiamata</th></tr></thead><tbody>
+<tr><td>1. Classificazione</td><td>Si leggono dal registro il gruppo e il sottogruppo di prodotto validi; per questa batteria <code>BATTERIES</code> e <code>LMT</code>.</td><td><code>GET /api/v1/dpp/product-groups</code></td></tr>
+<tr><td>2. Invio</td><td>Si invia una richiesta con da 1 a 100 passaporti dello stesso gruppo e sottogruppo. Per ciascuno si indicano l'identificativo univoco, che deve essere un URL HTTPS, e la granularità; il lotto e il modello sono facoltativi. L'intestazione <code>Idempotency-Key</code> è obbligatoria e va riusata se si ripete la stessa richiesta.</td><td><code>POST /api/v1/dpp/submission</code></td></tr>
+<tr><td>3. Presa in carico</td><td>Il registro risponde <code>202 Accepted</code> con un <code>taskId</code> e, se disponibile, un tempo stimato di elaborazione. La risposta conferma solo la presa in carico, non la registrazione.</td><td>—</td></tr>
+<tr><td>4. Validazione</td><td>Il registro legge il passaporto all'indirizzo dell'identificativo univoco e lo valida. Se l'indirizzo non è raggiungibile l'esito è <code>UPI_NOT_RESOLVABLE</code>. Il contenuto letto non viene conservato.</td><td>—</td></tr>
+<tr><td>5. Esito</td><td>Si interroga il task finché non è <code>COMPLETED</code> o <code>ERROR</code>, a intervalli crescenti (1, 1, 2, 3, 5, 8… secondi, al massimo ogni 60 secondi, rispettando <code>Retry-After</code>). Un task completato può avere esito <code>SUCCEEDED</code> o <code>FAILED</code>.</td><td><code>GET /api/v1/tasks/{taskId}</code></td></tr>
+<tr><td>6. Identificativo del registro</td><td>Il dettaglio per passaporto riporta, a registrazione riuscita, l'identificativo assegnato dal registro (<code>uniqueRegistryIdentifier</code>).</td><td><code>GET /api/v1/tasks/{taskId}/items</code></td></tr>
+</tbody></table>
+<p>Per la batteria dell'esempio la richiesta del passo 2 contiene:</p>
+<pre><code>{
+  "productGroup": "BATTERIES",
+  "productSubGroup": "LMT",
+  "submissionItems": [
+    {
+      "uniqueProductIdentifier": "https://id.example.com/01/09506000134352/21/EX27-000184",
+      "granularity": "item",
+      "modelIdentifier": "EX-36-134"
+    }
+  ]
+}</code></pre>
+<p>La registrazione è atomica: se anche un solo passaporto della richiesta non è conforme, non ne viene registrato nessuno. Il dettaglio del task indica quali passaporti correggere prima di inviare di nuovo la richiesta completa, con una nuova <code>Idempotency-Key</code>.</p>
+<p>Nel processo compaiono quindi tre identificativi distinti:</p>
+<table><thead><tr><th>Identificativo</th><th>Che cosa identifica</th><th>Chi lo assegna</th><th>Dove si trova</th></tr></thead><tbody>
+<tr><td><code>uniqueProductIdentifier</code></td><td>Il prodotto, qui la singola batteria (data point 1)</td><td>L'operatore economico; nell'esempio è l'URI GS1 Digital Link codificato nel QR code</td><td>Nel passaporto e nella richiesta di registrazione</td></tr>
+<tr><td><code>digitalProductPassportId</code></td><td>Il passaporto stesso</td><td>L'operatore economico o il fornitore di servizi che gestisce il passaporto</td><td>Solo nel passaporto</td></tr>
+<tr><td><code>uniqueRegistryIdentifier</code></td><td>La registrazione del passaporto nel registro</td><td>Il registro della Commissione</td><td>Nella risposta del registro, solo se la registrazione riesce</td></tr>
+</tbody></table>

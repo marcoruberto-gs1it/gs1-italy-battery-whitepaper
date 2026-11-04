@@ -88,6 +88,7 @@ code { font: .9em/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; overflow-w
 .ids div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 8px; font-size: 14px; padding-top: 8px; border-top: 1px solid var(--border); }
 .ids dt { color: var(--text-3); font-weight: 600; }
 .ids dd { margin: 0; }
+.ids .muted { color: var(--text-3); font-size: 12.5px; }
 
 /* Selettore del livello di accesso */
 .access { padding: 16px 20px; margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; }
@@ -511,11 +512,12 @@ footer.foot p { margin: 0 0 6px; }
       </div>
     </div>
     <dl class="ids">
-      <div><dt>Identificativo univoco</dt><dd><code>https://id.example.com/01/09506000134352/21/EX27-000184</code></dd></div>
+      <div><dt>Identificativo univoco</dt><dd><code>https://id.example.com/01/09506000134352/21/EX27-000184</code> <span class="muted">· prodotto, assegnato dal fabbricante</span></dd></div>
+      <div><dt>Identificativo del passaporto</dt><dd><code>https://id.example.com/dpp/EX27-000184</code> <span class="muted">· assegnato dal fabbricante</span></dd></div>
       <div><dt>GTIN (modello)</dt><dd>09506000134352</dd></div>
       <div><dt>Numero di serie</dt><dd>EX27-000184</dd></div>
       <div><dt>Operatore responsabile</dt><dd>Azienda Esempio S.r.l. · GLN 9506000000008</dd></div>
-      <div><dt>Registro UE</dt><dd>Passaporto registrato (esempio)</dd></div>
+      <div><dt>Registro UE</dt><dd>Passaporto registrato · <code>REG-ESEMPIO-000184</code> <span class="muted">· identificativo assegnato dal registro (valore fittizio)</span></dd></div>
     </dl>
   </aside>
 </div>

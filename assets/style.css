@@ -265,6 +265,14 @@ h2:hover .anchor, h3:hover .anchor, .anchor:focus { opacity: 1; text-decoration:
 .doc code { overflow-wrap: anywhere; }
 .doc td code { word-break: break-all; }
 
+/* Blocchi di codice (esempi di richieste e risposte) */
+.doc pre {
+  margin: 16px 0 24px; padding: 14px 16px; overflow-x: auto;
+  background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius);
+  font: 13px/1.55 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+.doc pre code { background: none; padding: 0; border-radius: 0; font: inherit; overflow-wrap: normal; white-space: pre; }
+
 @container doc (max-width: 560px) {
   .table-wrap { overflow: visible; border: 0; border-radius: 0; background: none; }
   .table-wrap table, .table-wrap tbody, .table-wrap tr, .table-wrap td { display: block; width: 100%; }
