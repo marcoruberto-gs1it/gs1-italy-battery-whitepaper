@@ -257,13 +257,17 @@ h2:hover .anchor, h3:hover .anchor, .anchor:focus { opacity: 1; text-decoration:
 .doc th, .doc td { padding: 10px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border); }
 .doc th { background: var(--bg-soft); font-weight: 600; font-size: 13px; line-height: 1.35; color: var(--text-2); }
 .doc tbody tr:last-child td { border-bottom: 0; }
-.doc tbody tr:hover td { background: var(--bg-soft); }
+.doc tbody tr:hover td { background: var(--bg-mute); }
 .doc td:first-child { font-weight: 500; }
 .wide table { font-size: 13.5px; }
 .wide th, .wide td { padding: 9px 10px; }
-.doc td, .doc th { overflow-wrap: break-word; }
+.doc td, .doc th { overflow-wrap: break-word; hyphens: auto; -webkit-hyphens: auto; }
+.doc th { hyphens: manual; }
 .doc code { overflow-wrap: anywhere; }
-.doc td code { word-break: break-all; }
+/* Codici nelle tabelle: i brevi restano interi, i lunghi vanno a capo solo dopo i separatori (<wbr>) */
+.doc td code.nw { white-space: nowrap; }
+.doc td code.brk { overflow-wrap: normal; word-break: normal; }
+.doc :where(tbody tr:nth-child(even)) td { background: color-mix(in srgb, var(--bg-soft) 55%, transparent); }
 
 /* Blocchi di codice (esempi di richieste e risposte) */
 .doc pre {
@@ -271,8 +275,27 @@ h2:hover .anchor, h3:hover .anchor, .anchor:focus { opacity: 1; text-decoration:
   background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius);
   font: 13px/1.55 ui-monospace, SFMono-Regular, Menlo, monospace;
 }
-.doc pre code { background: none; padding: 0; border-radius: 0; font: inherit; overflow-wrap: normal; white-space: pre; }
+.doc pre code { background: none; padding: 0; border-radius: 0; font: inherit; white-space: pre-wrap; overflow-wrap: anywhere; }
+@container doc (max-width: 560px) { .doc pre { padding: 12px; font-size: 12px; } }
 
+/* Soglia del passaggio a schede: più colonne ha la tabella, prima avviene.
+   2 e 3 colonne ≤ 560px, 4 colonne ≤ 620px, 5 o più ≤ 700px (sotto). */
+@container doc (max-width: 620px) {
+  .cols-4 { overflow: visible; border: 0; border-radius: 0; background: none; }
+  .cols-4 table, .cols-4 tbody, .cols-4 tr, .cols-4 td { display: block; width: 100%; }
+  .cols-4 thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .cols-4 tr { margin-bottom: 12px; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+  .cols-4 td { padding: 8px 14px; border: 0; background: none; }
+  .cols-4 td:empty { display: none; }
+  .cols-4 td[data-label]::before {
+    content: attr(data-label); display: block; margin-bottom: 2px;
+    font-size: 11.5px; font-weight: 600; letter-spacing: .03em; text-transform: uppercase; color: var(--text-3);
+  }
+  .cols-4 td:first-child {
+    padding: 11px 14px; font-weight: 600; font-size: 15px;
+    background: var(--bg-soft); border-bottom: 1px solid var(--border);
+  }
+}
 @container doc (max-width: 560px) {
   .table-wrap { overflow: visible; border: 0; border-radius: 0; background: none; }
   .table-wrap table, .table-wrap tbody, .table-wrap tr, .table-wrap td { display: block; width: 100%; }
@@ -281,7 +304,7 @@ h2:hover .anchor, h3:hover .anchor, .anchor:focus { opacity: 1; text-decoration:
     margin-bottom: 12px; overflow: hidden;
     border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface);
   }
-  .table-wrap td { padding: 8px 14px; border: 0; }
+  .table-wrap td { padding: 8px 14px; border: 0; background: none; }
   .table-wrap tbody tr:hover td { background: none; }
   .table-wrap td:empty { display: none; }
   .table-wrap td[data-label]::before {
@@ -304,7 +327,7 @@ h2:hover .anchor, h3:hover .anchor, .anchor:focus { opacity: 1; text-decoration:
     border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface);
   }
   .wide tr { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
-  .wide td { width: auto; padding: 8px 14px; border: 0; }
+  .wide td { width: auto; padding: 8px 14px; border: 0; background: none; }
   .wide td:first-child { grid-column: 1 / -1; }
   .wide tbody tr:hover td { background: none; }
   .wide td:empty { display: none; }

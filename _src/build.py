@@ -55,6 +55,7 @@ NAV = [
     ("Parte VI — Passaporto della batteria in pratica", [
         ("25-battery-passport-data-points", "25. Data point del passaporto della batteria"),
         ("26-battery-passport-example", "26. Esempio completo: passaporto di una batteria per e-bike"),
+        ("27-registry-registration-walkthrough", "27. Registrare il passaporto nel registro UE: esempio tecnico"),
     ]),
 ]
 
@@ -112,8 +113,18 @@ def responsive_table(m):
     if head:
         table = re.sub(r"<tbody>.*?</tbody>", lambda b: re.sub(r"<tr>.*?</tr>", row, b.group(0), flags=re.S),
                        table, flags=re.S)
+    table = re.sub(r"<code>(.*?)</code>", table_code, table, flags=re.S)
     wide = " wide" if len(labels) >= 5 else ""
-    return f'<div class="table-wrap{wide}">{table}</div>'
+    return f'<div class="table-wrap cols-{len(labels)}{wide}">{table}</div>'
+
+
+def table_code(m):
+    """Nelle tabelle i codici brevi non vanno a capo; quelli lunghi (URL, IRI) vanno a capo
+    solo dopo i separatori, così non vengono spezzati a metà parola."""
+    code = m.group(1)
+    if len(strip_tags(code)) <= 24:
+        return f'<code class="nw">{code}</code>'
+    return '<code class="brk">' + re.sub(r"(/+|\.|#|-|_|\?|&amp;|=)(?=[^/])", r"\1<wbr>", code) + "</code>"
 
 
 def search_entries(body, slug, page_title):

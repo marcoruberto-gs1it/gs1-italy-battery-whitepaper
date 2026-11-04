@@ -29,7 +29,7 @@
 <div class="nav-group"><p class="nav-part">Parte III — Requisiti comuni e implementazione GS1</p><ul><li><a href="10-product-sustainability-and-safety.html">10. Requisiti di prodotto, sostenibilità e sicurezza</a></li><li><a href="11-economic-operators-and-conformity.html">11. Operatori economici, conformità e vigilanza del mercato</a></li><li><a href="12-battery-and-grouping-identification.html">12. Identificazione delle batterie e dei raggruppamenti</a></li><li><a href="13-labelling-and-qr-codes.html" aria-current="page">13. Etichettatura, codici QR e passaporti delle batterie</a></li><li><a href="14-due-diligence.html">14. Dovere di diligenza per le batterie</a></li><li><a href="15-producer-responsibility.html">15. Registrazione dei produttori e responsabilità estesa del produttore</a></li><li><a href="16-waste-treatment-and-recycling.html">16. Raccolta, trattamento e riciclaggio dei rifiuti</a></li><li><a href="17-reuse-repurposing-and-remanufacturing.html">17. Riutilizzo, cambio di destinazione e rifabbricazione</a></li></ul></div>
 <div class="nav-group"><p class="nav-part">Parte IV — Modelli di implementazione ed esempi</p><ul><li><a href="18-gs1-implementation-models.html">18. Modelli di implementazione GS1</a></li><li><a href="19-supply-chain-traceability.html">19. Tracciabilità della filiera e scambio di informazioni</a></li><li><a href="20-worked-examples.html">20. Esempi pratici</a></li><li><a href="21-gs1-support-summary.html">21. Sintesi delle funzioni normative e del supporto GS1</a></li></ul></div>
 <div class="nav-group"><p class="nav-part">Parte V — Materiale di riferimento</p><ul><li><a href="22-glossary.html">22. Glossario</a></li><li><a href="23-regulatory-reference-tables.html">23. Tabelle di riferimento normativo</a></li><li><a href="24-sources-and-references.html">24. Fonti e riferimenti</a></li></ul></div>
-<div class="nav-group"><p class="nav-part">Parte VI — Passaporto della batteria in pratica</p><ul><li><a href="25-battery-passport-data-points.html">25. Data point del passaporto della batteria</a></li><li><a href="26-battery-passport-example.html">26. Esempio completo: passaporto di una batteria per e-bike</a></li></ul></div>
+<div class="nav-group"><p class="nav-part">Parte VI — Passaporto della batteria in pratica</p><ul><li><a href="25-battery-passport-data-points.html">25. Data point del passaporto della batteria</a></li><li><a href="26-battery-passport-example.html">26. Esempio completo: passaporto di una batteria per e-bike</a></li><li><a href="27-registry-registration-walkthrough.html">27. Registrare il passaporto nel registro UE: esempio tecnico</a></li></ul></div>
 </nav>
 <div class="backdrop"></div>
 <main id="contenuto" class="main">
@@ -38,7 +38,7 @@
 <p>Questa sezione illustra le regole comuni relative a etichette fisiche, marcature, codici QR e passaporti delle batterie. Si tratta di meccanismi distinti. Un codice QR è un supporto dati fisico, non un passaporto della batteria, e non sostituisce le marcature fisiche né la marcatura CE.</p>
 <h2 id="13-1-etichette-e-marcature-fisiche">13.1 Etichette e marcature fisiche <a class="anchor" href="#13-1-etichette-e-marcature-fisiche" aria-label="Link a questa sezione">#</a></h2>
 <p>L'articolo 13 crea obblighi con ambiti e date diversi. I fabbricanti garantiscono l'etichettatura di cui all'articolo 13 per le batterie che immettono sul mercato o mettono in servizio (articolo 38, paragrafo 1); importatori e distributori hanno obblighi di verifica (articoli 41, paragrafo 2, e 42, paragrafo 2).</p>
-<div class="table-wrap"><table><thead><tr><th>Elemento</th><th>Ambito e regola</th><th>Tempistica o condizioni</th></tr>
+<div class="table-wrap cols-3"><table><thead><tr><th>Elemento</th><th>Ambito e regola</th><th>Tempistica o condizioni</th></tr>
 </thead>
 <tbody><tr><td data-label="Elemento">Etichetta generale</td><td data-label="Ambito e regola">Tutte le batterie; allegato VI, parte A (articolo 13, paragrafo 1)</td><td data-label="Tempistica o condizioni">Dal 18 agosto 2026 o, se successiva, 18 mesi dopo l'entrata in vigore dell'atto di cui all'articolo 13, paragrafo 10; OQ-REG-001 resta aperta.</td></tr>
 <tr><td data-label="Elemento">Etichetta di capacità</td><td data-label="Ambito e regola">Batterie portatili, LMT e per autoveicoli ricaricabili (articolo 13, paragrafo 2)</td><td data-label="Tempistica o condizioni">Stessa regola di decorrenza condizionata.</td></tr>
@@ -54,7 +54,7 @@
 <p>La dichiarazione di conformità è accessibile tramite codice QR ai sensi dell'articolo 13, paragrafo 6, lettera b), e dell'allegato XIII, punto 1, lettera r). Tale accesso non sostituisce la marcatura CE fisica di cui agli articoli 19 e 20, e la marcatura CE non soddisfa l'obbligo del codice QR.</p>
 <h2 id="13-3-l-obbligo-normativo-del-codice-qr">13.3 L'obbligo normativo del codice QR <a class="anchor" href="#13-3-l-obbligo-normativo-del-codice-qr" aria-label="Link a questa sezione">#</a></h2>
 <p>Dal 18 febbraio 2027 tutte le batterie devono riportare un codice QR (articolo 13, paragrafo 6). L'allegato VI, parte C, richiede un contrasto elevato e dimensioni che ne consentano la lettura con un lettore comunemente disponibile; l'articolo 13, paragrafo 7, disciplina durabilità e posizionamento.</p>
-<div class="table-wrap"><table><thead><tr><th>Categoria di batteria</th><th>Riferimento</th><th>Ruolo del codice QR</th></tr>
+<div class="table-wrap cols-3"><table><thead><tr><th>Categoria di batteria</th><th>Riferimento</th><th>Ruolo del codice QR</th></tr>
 </thead>
 <tbody><tr><td data-label="Categoria di batteria">LMT; industriali con capacità superiore a 2 kWh; EV</td><td data-label="Riferimento">Articolo 13, paragrafo 6, lettera a)</td><td data-label="Ruolo del codice QR">Rimanda al passaporto della batteria</td></tr>
 <tr><td data-label="Categoria di batteria">Altre batterie, comprese le industriali con capacità pari o inferiore a 2 kWh</td><td data-label="Riferimento">Articolo 13, paragrafo 6, lettera b)</td><td data-label="Ruolo del codice QR">Rimanda a etichette applicabili, dichiarazione, relazione e altre informazioni.</td></tr>
@@ -82,7 +82,7 @@
 </ol>
 <p>In questo modo si ottengono un'identificazione univoca a livello globale e un punto di accesso stabile.</p>
 <h2 id="13-8-resolver-e-collegamento-a-una-risorsa-web">13.8 Resolver e collegamento a una risorsa web <a class="anchor" href="#13-8-resolver-e-collegamento-a-una-risorsa-web" aria-label="Link a questa sezione">#</a></h2>
-<div class="table-wrap"><table><thead><tr><th>Componente</th><th>Funzione</th><th>Spiegazione</th></tr>
+<div class="table-wrap cols-3"><table><thead><tr><th>Componente</th><th>Funzione</th><th>Spiegazione</th></tr>
 </thead>
 <tbody><tr><td data-label="Componente">Codice QR</td><td data-label="Funzione">Supporto dati che codifica un URI</td><td data-label="Spiegazione">Può essere letto da scanner di immagini e dispositivi mobili</td></tr>
 <tr><td data-label="Componente">URI GS1 Digital Link</td><td data-label="Funzione">Identificativo utilizzabile sul web</td><td data-label="Spiegazione">Rimanda alle informazioni richieste dal Regolamento e oltre</td></tr>

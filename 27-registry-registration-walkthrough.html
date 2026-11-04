@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>27. Registrare il passaporto nel registro UE: esempio tecnico completo · Linee guida GS1 sulle batterie</title>
+<meta name="description" content="Linee guida GS1 per l&#x27;implementazione del Regolamento (UE) 2023/1542 sulle batterie — edizione italiana a cura di GS1 Italy">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" type="image/png" href="assets/img/favicon-gs1-italy.png">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<a class="skip" href="#contenuto">Vai al contenuto</a>
+<header class="topbar">
+  <button class="menu-btn" aria-label="Apri il menu" aria-expanded="false" aria-controls="sidebar"><span></span></button>
+  <a class="brand" href="index.html"><img class="brand-logo" src="assets/img/logo-gs1-italy.png" alt="GS1 Italy" width="178" height="122"><span class="brand-text">Linee guida sulle batterie<small>Regolamento (UE) 2023/1542</small></span></a>
+  <button class="search-btn" type="button" aria-label="Cerca nelle linee guida"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm9 2-4-4"/></svg><span class="search-label">Cerca</span><kbd>⌘K</kbd></button>
+  <span class="badge">Bozza di lavoro</span>
+  <button class="theme-btn" aria-label="Cambia tema chiaro/scuro"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.39 5.39 0 0 1-4.4 2.26 5.4 5.4 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg></button>
+</header>
+<div class="shell">
+<nav id="sidebar" class="sidebar" aria-label="Indice">
+<a class="nav-home" href="index.html">Panoramica</a>
+<div class="nav-group"><p class="nav-part">Parte I — Orientamento e ambito</p><ul><li><a href="01-executive-summary.html">1. Sintesi</a></li><li><a href="02-scope-and-purpose.html">2. Ambito, finalità e limiti del documento</a></li><li><a href="03-how-to-use-this-guideline.html">3. Come utilizzare le linee guida</a></li><li><a href="04-battery-categories.html">4. Determinare la categoria della batteria</a></li></ul></div>
+<div class="nav-group"><p class="nav-part">Parte II — Indicazioni per categoria</p><ul><li><a href="05-portable-batteries.html">5. Batterie portatili</a></li><li><a href="06-lmt-batteries.html">6. Batterie per mezzi di trasporto leggeri</a></li><li><a href="07-sli-batteries.html">7. Batterie per autoveicoli (SLI)</a></li><li><a href="08-industrial-batteries.html">8. Batterie industriali</a></li><li><a href="09-electric-vehicle-batteries.html">9. Batterie per veicoli elettrici</a></li></ul></div>
+<div class="nav-group"><p class="nav-part">Parte III — Requisiti comuni e implementazione GS1</p><ul><li><a href="10-product-sustainability-and-safety.html">10. Requisiti di prodotto, sostenibilità e sicurezza</a></li><li><a href="11-economic-operators-and-conformity.html">11. Operatori economici, conformità e vigilanza del mercato</a></li><li><a href="12-battery-and-grouping-identification.html">12. Identificazione delle batterie e dei raggruppamenti</a></li><li><a href="13-labelling-and-qr-codes.html">13. Etichettatura, codici QR e passaporti delle batterie</a></li><li><a href="14-due-diligence.html">14. Dovere di diligenza per le batterie</a></li><li><a href="15-producer-responsibility.html">15. Registrazione dei produttori e responsabilità estesa del produttore</a></li><li><a href="16-waste-treatment-and-recycling.html">16. Raccolta, trattamento e riciclaggio dei rifiuti</a></li><li><a href="17-reuse-repurposing-and-remanufacturing.html">17. Riutilizzo, cambio di destinazione e rifabbricazione</a></li></ul></div>
+<div class="nav-group"><p class="nav-part">Parte IV — Modelli di implementazione ed esempi</p><ul><li><a href="18-gs1-implementation-models.html">18. Modelli di implementazione GS1</a></li><li><a href="19-supply-chain-traceability.html">19. Tracciabilità della filiera e scambio di informazioni</a></li><li><a href="20-worked-examples.html">20. Esempi pratici</a></li><li><a href="21-gs1-support-summary.html">21. Sintesi delle funzioni normative e del supporto GS1</a></li></ul></div>
+<div class="nav-group"><p class="nav-part">Parte V — Materiale di riferimento</p><ul><li><a href="22-glossary.html">22. Glossario</a></li><li><a href="23-regulatory-reference-tables.html">23. Tabelle di riferimento normativo</a></li><li><a href="24-sources-and-references.html">24. Fonti e riferimenti</a></li></ul></div>
+<div class="nav-group"><p class="nav-part">Parte VI — Passaporto della batteria in pratica</p><ul><li><a href="25-battery-passport-data-points.html">25. Data point del passaporto della batteria</a></li><li><a href="26-battery-passport-example.html">26. Esempio completo: passaporto di una batteria per e-bike</a></li><li><a href="27-registry-registration-walkthrough.html" aria-current="page">27. Registrare il passaporto nel registro UE: esempio tecnico</a></li></ul></div>
+</nav>
+<div class="backdrop"></div>
+<main id="contenuto" class="main">
+<article class="doc">
+<h1>27. Registrare il passaporto nel registro UE: esempio tecnico completo</h1>
+<p>Questa sezione segue passo per passo la registrazione del passaporto della batteria per e-bike della <a href="26-battery-passport-example.html">Sezione 26</a> nel registro dei passaporti digitali dei prodotti della Commissione europea. Per ogni passo indica chi fa che cosa, quale chiamata API serve, che cosa contengono la richiesta e la risposta e come interpretarle.</p>
+<p>È rivolta a chi deve organizzare il progetto in azienda e a chi deve realizzare l'integrazione: responsabili di prodotto e conformità, sviluppatori, fornitori di servizi per il passaporto.</p>
+<div class="callout">
+<p class="callout-title">Su che cosa si basa</p>
+<p>Gli indirizzi, i campi e le regole riportati sono quelli dei documenti pubblicati dalla Commissione il 30 ottobre 2026 (versione 1.0): la guida all'integrazione API per gli operatori economici, la guida tecnica agli account di servizio, la guida all'autenticazione per chi ospita il passaporto e le specifiche OpenAPI 1.0.0 del registro. Fa fede il testo del Regolamento di esecuzione (UE) 2026/1778; prima di andare in produzione conviene verificare che non siano uscite versioni più recenti.</p>
+</div>
+<div class="callout">
+<p class="callout-title">Valori d'esempio</p>
+<p>Azienda Esempio, i suoi domini (<code>example.com</code>), il GTIN 09506000134352, l'identificativo dell'organizzazione, il Client ID, la chiave, i token e gli identificativi restituiti dal registro (taskId, identificativo del registro) sono fittizi. Gli indirizzi della Commissione (<code>product-passport.ec.europa.eu</code>) sono invece quelli pubblicati.</p>
+</div>
+
+<h2 id="27-1-il-percorso-in-sintesi">27.1 Il percorso in sintesi <a class="anchor" href="#27-1-il-percorso-in-sintesi" aria-label="Link a questa sezione">#</a></h2>
+<p>La registrazione si svolge in quattro fasi. Le prime due si preparano una volta sola; le ultime due si ripetono per ogni gruppo di batterie immesso sul mercato.</p>
+<div class="table-wrap cols-4"><table><thead><tr><th>Fase</th><th>Che cosa si fa</th><th>Quando</th><th>Risultato</th></tr></thead><tbody>
+<tr><td data-label="Fase">A. Accesso al registro</td><td data-label="Che cosa si fa">Adesione e verifica dell'organizzazione, creazione dell'account di servizio, registrazione della chiave pubblica</td><td data-label="Quando">Una volta; la chiave si rinnova ogni anno</td><td data-label="Risultato">Client ID, identificativo della chiave (kid) e chiave privata custodita in azienda</td></tr>
+<tr><td data-label="Fase">B. Pubblicazione del passaporto</td><td data-label="Che cosa si fa">Il passaporto è pubblicato all'indirizzo dell'identificativo univoco del prodotto; la parte riservata è protetta da token</td><td data-label="Quando">Prima di ogni registrazione</td><td data-label="Risultato">Passaporto raggiungibile e validabile dal registro</td></tr>
+<tr><td data-label="Fase">C. Token di accesso</td><td data-label="Che cosa si fa">Il sistema aziendale firma una dichiarazione con la chiave privata e ottiene un token valido 15 minuti</td><td data-label="Quando">Quando il token precedente sta per scadere</td><td data-label="Risultato">Token di accesso alle API del registro</td></tr>
+<tr><td data-label="Fase">D. Registrazione ed esito</td><td data-label="Che cosa si fa">Invio della richiesta, attesa dell'elaborazione, lettura dell'esito</td><td data-label="Quando">All'immissione sul mercato di ogni batteria o gruppo di batterie</td><td data-label="Risultato">Identificativo assegnato dal registro a ogni passaporto</td></tr>
+</tbody></table></div>
+<p>Nel processo intervengono quattro soggetti:</p>
+<div class="table-wrap cols-3"><table><thead><tr><th>Soggetto</th><th>Ruolo</th><th>Nell'esempio</th></tr></thead><tbody>
+<tr><td data-label="Soggetto">Operatore economico</td><td data-label="Ruolo">Crea e mantiene il passaporto, lo registra e ne risponde</td><td data-label="Nell&#x27;esempio">Azienda Esempio S.r.l.</td></tr>
+<tr><td data-label="Soggetto">Sistema che ospita il passaporto</td><td data-label="Ruolo">Restituisce il passaporto: la parte pubblica a chiunque, la parte riservata solo con un token valido. Può essere gestito dall'azienda o da un fornitore di servizi</td><td data-label="Nell&#x27;esempio">Resolver GS1 su <code class="nw">id.example.com</code> e piattaforma del passaporto su <code class="nw">dpp.example.com</code></td></tr>
+<tr><td data-label="Soggetto">Servizio di autenticazione DPP</td><td data-label="Ruolo">Rilascia i token: all'azienda per chiamare il registro, al registro per leggere la parte riservata del passaporto</td><td data-label="Nell&#x27;esempio"><code class="brk">auth.<wbr>product-<wbr>passport.<wbr>ec.<wbr>europa.<wbr>eu</code></td></tr>
+<tr><td data-label="Soggetto">Registro DPP</td><td data-label="Ruolo">Riceve le richieste, legge e valida il passaporto, assegna l'identificativo del registro; il cruscotto delle attività ne mostra l'esito</td><td data-label="Nell&#x27;esempio"><code class="brk">reg.<wbr>product-<wbr>passport.<wbr>ec.<wbr>europa.<wbr>eu</code></td></tr>
+</tbody></table></div>
+<p>Ogni fase si prova prima nell'ambiente di accettazione e poi si ripete in produzione. I due ambienti hanno indirizzi, credenziali e token distinti: un token di un ambiente non vale nell'altro.</p>
+<div class="table-wrap cols-3"><table><thead><tr><th>Indirizzo</th><th>Accettazione</th><th>Produzione</th></tr></thead><tbody>
+<tr><td data-label="Indirizzo">Portale del registro</td><td data-label="Accettazione"><code class="brk">https://<wbr>registry.<wbr>acc.<wbr>product-<wbr>passport.<wbr>ec.<wbr>europa.<wbr>eu/</code></td><td data-label="Produzione"><code class="brk">https://<wbr>registry.<wbr>product-<wbr>passport.<wbr>ec.<wbr>europa.<wbr>eu/</code></td></tr>
+<tr><td data-label="Indirizzo">Emittente dei token (issuer)</td><td data-label="Accettazione"><code class="brk">https://<wbr>auth.<wbr>acc.<wbr>product-<wbr>passport.<wbr>ec.<wbr>europa.<wbr>eu</code></td><td data-label="Produzione"><code class="brk">https://<wbr>auth.<wbr>product-<wbr>passport.<wbr>ec.<wbr>europa.<wbr>eu</code></td></tr>
+<tr><td data-label="Indirizzo">Richiesta del token</td><td data-label="Accettazione"><code class="brk">https://<wbr>auth.<wbr>acc.<wbr>product-<wbr>passport.<wbr>ec.<wbr>europa.<wbr>eu/<wbr>oauth2/<wbr>token</code></td><td data-label="Produzione"><code class="brk">https://<wbr>auth.<wbr>product-<wbr>passport.<wbr>ec.<wbr>europa.<wbr>eu/<wbr>oauth2/<wbr>token</code></td></tr>
+<tr><td data-label="Indirizzo">Chiavi pubbliche dei token (JWKS)</td><td data-label="Accettazione"><code class="brk">https://<wbr>auth.<wbr>acc.<wbr>product-<wbr>passport.<wbr>ec.<wbr>europa.<wbr>eu/<wbr>oauth2/<wbr>jwks</code></td><td data-label="Produzione"><code class="brk">https://<wbr>auth.<wbr>product-<wbr>passport.<wbr>ec.<wbr>europa.<wbr>eu/<wbr>oauth2/<wbr>jwks</code></td></tr>
+<tr><td data-label="Indirizzo">Identificativo della risorsa «registro»</td><td data-label="Accettazione"><code class="brk">https://<wbr>auth.<wbr>acc.<wbr>product-<wbr>passport.<wbr>ec.<wbr>europa.<wbr>eu/<wbr>resources/<wbr>dpp/<wbr>registry</code></td><td data-label="Produzione"><code class="brk">https://<wbr>auth.<wbr>product-<wbr>passport.<wbr>ec.<wbr>europa.<wbr>eu/<wbr>resources/<wbr>dpp/<wbr>registry</code></td></tr>
+<tr><td data-label="Indirizzo">Base delle API del registro</td><td data-label="Accettazione"><code class="brk">https://<wbr>reg.<wbr>acc.<wbr>product-<wbr>passport.<wbr>ec.<wbr>europa.<wbr>eu/<wbr>api/<wbr>v1</code></td><td data-label="Produzione"><code class="brk">https://<wbr>reg.<wbr>product-<wbr>passport.<wbr>ec.<wbr>europa.<wbr>eu/<wbr>api/<wbr>v1</code></td></tr>
+</tbody></table></div>
+<div class="callout">
+<p class="callout-title">Quale indirizzo per le API</p>
+<p>Le specifiche OpenAPI indicano come server <code>registry.product-passport.ec.europa.eu</code>, che la guida agli account di servizio usa per il portale. La guida all'integrazione API chiede di usare gli indirizzi pubblicati per ciascun ambiente e non quelli delle specifiche: la tabella riporta quindi quelli della guida agli account di servizio (capitolo 13). Gli esempi che seguono usano la produzione.</p>
+</div>
+
+<h2 id="27-2-fase-a-accesso-al-registro">27.2 Fase A: accesso al registro <a class="anchor" href="#27-2-fase-a-accesso-al-registro" aria-label="Link a questa sezione">#</a></h2>
+<h3 id="a1-adesione-e-verifica-dell-organizzazione">A1. Adesione e verifica dell'organizzazione <a class="anchor" href="#a1-adesione-e-verifica-dell-organizzazione" aria-label="Link a questa sezione">#</a></h3>
+<p>Azienda Esempio aderisce al registro dal portale e completa la verifica dell'organizzazione. Finché lo stato non è <code>VERIFIED</code> il registro respinge le richieste di registrazione con <code>403</code>.</p>
+<p>A verifica conclusa, il portale mostra in <em>Organisation &gt; Verification</em>, campo <em>Organisation ID</em>, l'identificativo dell'organizzazione (org-identifier), nell'esempio <code>ORG-ESEMPIO-0001</code>. Non è un segreto ma va copiato esattamente com'è: serve nella fase B per riconoscere le richieste del registro fatte per conto dell'azienda.</p>
+<h3 id="a2-account-di-servizio">A2. Account di servizio <a class="anchor" href="#a2-account-di-servizio" aria-label="Link a questa sezione">#</a></h3>
+<p>Per un'integrazione da sistema a sistema, senza accesso manuale al portale, un amministratore dell'azienda crea un <strong>account di servizio</strong> e gli assegna il ruolo <em>Register DPPs</em>. Il registro rilascia un <strong>Client ID</strong>, nell'esempio <code>sa_01KESEMPIO</code>. Ogni organizzazione può avere al massimo cinque account di servizio operativi.</p>
+<h3 id="a3-coppia-di-chiavi">A3. Coppia di chiavi <a class="anchor" href="#a3-coppia-di-chiavi" aria-label="Link a questa sezione">#</a></h3>
+<p>L'account di servizio non ha password. Il sistema aziendale dimostra la propria identità firmando con una chiave privata, mentre il registro conserva solo la chiave pubblica corrispondente. Sono ammesse chiavi a curva ellittica P-256 (algoritmo ES256), P-384 (ES384) o P-521 (ES512).</p>
+<p>La Commissione raccomanda di generare e conservare la chiave privata in un modulo di sicurezza hardware (HSM), senza possibilità di esportarla. Se non è possibile, la guida riporta questo esempio con OpenSSL:</p>
+<pre><code># 1. Chiave privata P-256, cifrata con una passphrase da custodire a parte
+openssl genpkey -algorithm EC -pkeyopt ec_paramgen_curve:P-256 \
+  -aes-256-cbc -out private-key.pem
+
+# 2. Chiave pubblica da caricare nel registro
+openssl pkey -in private-key.pem -pubout -out public.pem</code></pre>
+<p>Nel portale si carica solo <code>public.pem</code>, in formato PEM o JWK: il registro rifiuta qualsiasi materiale di chiave privata. Ogni chiave registrata ha un identificativo, il <strong>kid</strong>, nell'esempio <code>chiave-2027-03</code>. La validità consigliata è di un anno, fino a un massimo di due. Si possono avere due chiavi attive contemporaneamente per sostituirle senza interruzioni: si registra la nuova, si verifica che funzioni e solo dopo si revoca la vecchia. Una chiave revocata o scaduta non si può registrare di nuovo.</p>
+<h3 id="a4-configurazione-del-sistema-aziendale">A4. Configurazione del sistema aziendale <a class="anchor" href="#a4-configurazione-del-sistema-aziendale" aria-label="Link a questa sezione">#</a></h3>
+<p>Al termine della fase A il sistema che effettuerà le registrazioni conosce questi valori (qui per la produzione):</p>
+<pre><code>DPP_ISSUER=https://auth.product-passport.ec.europa.eu
+DPP_TOKEN_ENDPOINT=https://auth.product-passport.ec.europa.eu/oauth2/token
+DPP_RESOURCE=https://auth.product-passport.ec.europa.eu/resources/dpp/registry
+DPP_REGISTRY_BASE_URL=https://reg.product-passport.ec.europa.eu/api/v1
+DPP_CLIENT_ID=sa_01KESEMPIO
+DPP_KID=chiave-2027-03
+DPP_ALG=ES256</code></pre>
+<p>Il Client ID e il kid sono dati di configurazione. La chiave privata e la sua passphrase vanno in un archivio protetto (HSM, servizio di gestione delle chiavi o dei segreti), mai nel codice, nei ticket, nelle e-mail o nei log.</p>
+
+<h2 id="27-3-fase-b-pubblicare-il-passaporto">27.3 Fase B: pubblicare il passaporto <a class="anchor" href="#27-3-fase-b-pubblicare-il-passaporto" aria-label="Link a questa sezione">#</a></h2>
+<p>Il registro non riceve il contenuto del passaporto: lo legge all'indirizzo dell'identificativo univoco del prodotto (UPI) al momento della registrazione, lo valida e non lo conserva. Se l'indirizzo non risponde, la registrazione fallisce con <code>UPI_NOT_RESOLVABLE</code>. Il passaporto deve quindi essere online <strong>prima</strong> della richiesta di registrazione.</p>
+<p>Nell'esempio l'UPI è l'URI GS1 Digital Link codificato nel QR code della batteria:</p>
+<pre><code>https://id.example.com/01/09506000134352/21/EX27-000184</code></pre>
+<h3 id="b1-la-lettura-pubblica">B1. La lettura pubblica <a class="anchor" href="#b1-la-lettura-pubblica" aria-label="Link a questa sezione">#</a></h3>
+<p>Il registro richiede l'UPI con <code>GET</code>, senza credenziali, e segue al massimo tre reindirizzamenti in tutto. Il resolver GS1 riceve la richiesta e la indirizza alla piattaforma che ospita il passaporto:</p>
+<pre><code>GET /01/09506000134352/21/EX27-000184 HTTP/1.1
+Host: id.example.com
+Accept: application/json
+
+HTTP/1.1 307 Temporary Redirect
+Location: https://dpp.example.com/passaporti/09506000134352/EX27-000184</code></pre>
+<pre><code>GET /passaporti/09506000134352/EX27-000184 HTTP/1.1
+Host: dpp.example.com
+Accept: application/json
+
+HTTP/1.1 200 OK
+Content-Type: application/ld+json
+Vary: Authorization
+
+{
+  "@context": "https://repository.product-passport.ec.europa.eu/product/batteries/subgroup/lmt/1.0.0/contexts/lmt-context.jsonld",
+  "@id": "https://id.example.com/01/09506000134352/21/EX27-000184",
+  "@type": "dpp:DigitalProductPassport",
+  "digitalProductPassportId": "https://id.example.com/dpp/EX27-000184",
+  "uniqueProductIdentifier": "https://id.example.com/01/09506000134352/21/EX27-000184",
+  "granularity": "https://repository.product-passport.ec.europa.eu/core/vocabs/granularity-level#item",
+  "dppStatus": "https://repository.product-passport.ec.europa.eu/core/vocabs/instance-status#validStatus",
+  …
+}</code></pre>
+<p>La risposta senza credenziali contiene <strong>solo la parte pubblica</strong>, cioè la vista pubblica completa mostrata e scaricabile nella <a href="esempio-passaporto.html#jsonld">pagina dimostrativa</a>. Il formato JSON è quello di base; sono ammessi anche JSON-LD e XML.</p>
+<p>Ogni passaggio del resolver deve essere raggiungibile senza credenziali. Lo stesso indirizzo serve anche le persone che scansionano il QR code: il resolver va configurato in modo da restituire il passaporto in formato JSON ai sistemi che lo chiedono e la pagina web ai browser (si veda la <a href="13-labelling-and-qr-codes.html#13-8-resolver-e-collegamento-a-una-risorsa-web">Sezione 13.8</a>).</p>
+<h3 id="b2-la-lettura-della-parte-riservata">B2. La lettura della parte riservata <a class="anchor" href="#b2-la-lettura-della-parte-riservata" aria-label="Link a questa sezione">#</a></h3>
+<p>Per validare anche i dati riservati, il registro ottiene dal servizio di autenticazione un token destinato alla piattaforma che ospita il passaporto e ripete la richiesta allo <strong>stesso indirizzo finale</strong>, questa volta con il token:</p>
+<pre><code>GET /passaporti/09506000134352/EX27-000184 HTTP/1.1
+Host: dpp.example.com
+Authorization: Bearer eyJ0eXAiOiJhdCtqd3QiLCJhbGciOiJFUzM4NCIs…
+Accept: application/json
+X-Correlation-Id: corr_EX27-000184</code></pre>
+<p>Il token è firmato dal servizio di autenticazione della Commissione. Decodificato, contiene:</p>
+<pre><code>{ "typ": "at+jwt", "alg": "ES384", "kid": "…" }
+
+{
+  "iss": "https://auth.product-passport.ec.europa.eu",
+  "sub": "dpp-registry",
+  "client_id": "dpp-registry-prod",
+  "principal_type": "SYSTEM",
+  "aud": "https://dpp.example.com",
+  "scope": "dpp:registry:read",
+  "resource_requestor_identifiers": [
+    { "type": "ORG_IDENTIFIER", "value": "ORG-ESEMPIO-0001" }
+  ],
+  "iat": 1805101205,
+  "exp": 1805101325,
+  "jti": "at_01K…"
+}</code></pre>
+<p>La piattaforma del passaporto verifica il token localmente, senza chiamare la Commissione a ogni richiesta, con questi controlli, in quest'ordine:</p>
+<div class="table-wrap cols-3"><table><thead><tr><th>Controllo</th><th>Regola</th><th>Se non è rispettata</th></tr></thead><tbody>
+<tr><td data-label="Controllo">Firma</td><td data-label="Regola">Algoritmo <code class="nw">ES384</code>, tipo <code class="nw">at+jwt</code>, chiave scelta per <code class="nw">kid</code> solo tra quelle pubblicate dal servizio di autenticazione dell'ambiente (JWKS), mai da indirizzi indicati nel token</td><td data-label="Se non è rispettata">401</td></tr>
+<tr><td data-label="Controllo">Emittente</td><td data-label="Regola"><code class="nw">iss</code> uguale all'emittente dell'ambiente</td><td data-label="Se non è rispettata">401</td></tr>
+<tr><td data-label="Controllo">Chiamante</td><td data-label="Regola"><code class="nw">sub</code>, <code class="nw">client_id</code> e <code class="nw">jti</code> presenti; <code class="nw">principal_type</code> uguale a <code class="nw">SYSTEM</code></td><td data-label="Se non è rispettata">401</td></tr>
+<tr><td data-label="Controllo">Validità</td><td data-label="Regola"><code class="nw">iat</code> ed <code class="nw">exp</code> presenti e coerenti, durata massima 120 secondi</td><td data-label="Se non è rispettata">401</td></tr>
+<tr><td data-label="Controllo">Destinatario</td><td data-label="Regola"><code class="nw">aud</code> uguale all'origine pubblica della piattaforma: schema, host e porta, senza percorso. Qui <code class="nw">https://dpp.example.com</code></td><td data-label="Se non è rispettata">401</td></tr>
+<tr><td data-label="Controllo">Autorizzazione</td><td data-label="Regola"><code class="nw">scope</code> uguale a <code class="nw">dpp:registry:read</code></td><td data-label="Se non è rispettata">403</td></tr>
+<tr><td data-label="Controllo">Richiedente</td><td data-label="Regola">Una sola voce <code class="nw">ORG_IDENTIFIER</code>, con valore uguale a quello previsto per quel passaporto nelle regole di accesso della piattaforma (qui l'org-identifier di Azienda Esempio)</td><td data-label="Se non è rispettata">403</td></tr>
+</tbody></table></div>
+<p>Se tutti i controlli riescono, la piattaforma risponde <code>200</code> con la parte pubblica e la parte riservata, direttamente, senza ulteriori reindirizzamenti. Le regole di risposta sono quattro:</p>
+<div class="table-wrap cols-2"><table><thead><tr><th>Richiesta</th><th>Risposta</th></tr></thead><tbody>
+<tr><td data-label="Richiesta">Senza intestazione <code class="nw">Authorization</code></td><td data-label="Risposta"><code class="nw">200</code> con la sola parte pubblica</td></tr>
+<tr><td data-label="Richiesta">Token valido e richiedente autorizzato</td><td data-label="Risposta"><code class="nw">200</code> con parte pubblica e parte riservata</td></tr>
+<tr><td data-label="Richiesta">Token presente ma non valido (firma, emittente, scadenza, destinatario)</td><td data-label="Risposta"><code class="nw">401</code>, senza ripiegare sulla parte pubblica</td></tr>
+<tr><td data-label="Richiesta">Token valido ma autorizzazione o richiedente non corrispondenti</td><td data-label="Risposta"><code class="nw">403</code>, senza dati riservati e senza rivelare quale richiedente era atteso</td></tr>
+</tbody></table></div>
+<p>Le risposte con dati riservati devono riportare <code>Vary: Authorization</code> e non devono essere memorizzate da cache condivise. I token non vanno mai scritti nei log.</p>
+<div class="callout">
+<p class="callout-title">Punto da verificare: la forma della risposta completa</p>
+<p>Gli artefatti semantici della Commissione definiscono quattro viste separate: pubblica, RES1, RES2 e RES3 (si veda la <a href="26-battery-passport-example.html#26-9-i-dati-in-formato-leggibile-dalle-macchine">Sezione 26.9</a>). Le guide pubblicate non specificano come comporle nella risposta autenticata, ad esempio se in un unico documento. È un punto da provare nell'ambiente di accettazione o da chiarire con l'helpdesk della Commissione prima di andare in produzione.</p>
+</div>
+
+<h2 id="27-4-fase-c-ottenere-il-token-di-accesso">27.4 Fase C: ottenere il token di accesso <a class="anchor" href="#27-4-fase-c-ottenere-il-token-di-accesso" aria-label="Link a questa sezione">#</a></h2>
+<p>Per chiamare le API del registro serve un token di accesso. Il sistema aziendale lo ottiene con il flusso OAuth 2.0 <em>client credentials</em> e l'autenticazione <code>private_key_jwt</code>: invece di una password, presenta una breve dichiarazione firmata con la chiave privata (client assertion).</p>
+<h3 id="c1-costruire-e-firmare-la-dichiarazione">C1. Costruire e firmare la dichiarazione <a class="anchor" href="#c1-costruire-e-firmare-la-dichiarazione" aria-label="Link a questa sezione">#</a></h3>
+<p>La dichiarazione è un JWT nuovo per ogni richiesta di token. Intestazione e contenuto, per una richiesta del 15 marzo 2027 alle 9:00 UTC:</p>
+<pre><code>{
+  "typ": "client-authentication+jwt",
+  "alg": "ES256",
+  "kid": "chiave-2027-03"
+}
+
+{
+  "iss": "sa_01KESEMPIO",
+  "sub": "sa_01KESEMPIO",
+  "aud": "https://auth.product-passport.ec.europa.eu",
+  "iat": 1805101200,
+  "exp": 1805101320,
+  "jti": "4b83d46f-d252-4afc-9945-4c872fb488d3"
+}</code></pre>
+<div class="table-wrap cols-3"><table><thead><tr><th>Campo</th><th>Valore</th><th>Regola</th></tr></thead><tbody>
+<tr><td data-label="Campo"><code class="nw">typ</code></td><td data-label="Valore"><code class="brk">client-<wbr>authentication+jwt</code></td><td data-label="Regola">Sempre questo valore</td></tr>
+<tr><td data-label="Campo"><code class="nw">alg</code></td><td data-label="Valore"><code class="nw">ES256</code></td><td data-label="Regola">Quello della chiave registrata: ES256, ES384 o ES512</td></tr>
+<tr><td data-label="Campo"><code class="nw">kid</code></td><td data-label="Valore"><code class="nw">chiave-2027-03</code></td><td data-label="Regola">Identificativo di una chiave attiva dell'account di servizio</td></tr>
+<tr><td data-label="Campo"><code class="nw">iss</code>, <code class="nw">sub</code></td><td data-label="Valore"><code class="nw">sa_01KESEMPIO</code></td><td data-label="Regola">Entrambi esattamente uguali al Client ID</td></tr>
+<tr><td data-label="Campo"><code class="nw">aud</code></td><td data-label="Valore"><code class="brk">https://<wbr>auth.<wbr>product-<wbr>passport.<wbr>ec.<wbr>europa.<wbr>eu</code></td><td data-label="Regola">Esattamente l'emittente dell'ambiente, non l'indirizzo del token né quello del registro</td></tr>
+<tr><td data-label="Campo"><code class="nw">iat</code></td><td data-label="Valore">Ora corrente, in secondi Unix</td><td data-label="Regola">L'orologio del sistema deve essere sincronizzato</td></tr>
+<tr><td data-label="Campo"><code class="nw">exp</code></td><td data-label="Valore"><code class="nw">iat</code> + 120</td><td data-label="Regola">Da 60 a 120 secondi dopo <code class="nw">iat</code>; massimo assoluto 5 minuti</td></tr>
+<tr><td data-label="Campo"><code class="nw">jti</code></td><td data-label="Valore">UUID casuale</td><td data-label="Regola">Nuovo a ogni dichiarazione, mai riutilizzato</td></tr>
+</tbody></table></div>
+<p>La firma va fatta con una libreria JOSE/JWT, non a mano. L'esempio della Commissione per Node.js, con la libreria <code>jose</code>:</p>
+<pre><code>import { SignJWT } from 'jose';
+import { randomUUID } from 'node:crypto';
+
+const clientId = process.env.DPP_CLIENT_ID;
+const kid = process.env.DPP_KID;
+const issuer = 'https://auth.product-passport.ec.europa.eu';
+const now = Math.floor(Date.now() / 1000);
+
+// privateKey è caricata da un archivio protetto, mai scritta nel codice
+const clientAssertion = await new SignJWT({})
+  .setProtectedHeader({ typ: 'client-authentication+jwt', alg: 'ES256', kid })
+  .setIssuer(clientId)
+  .setSubject(clientId)
+  .setAudience(issuer)
+  .setIssuedAt(now)
+  .setExpirationTime(now + 120)
+  .setJti(randomUUID())
+  .sign(privateKey);</code></pre>
+<p>La guida riporta anche l'equivalente in Java con la libreria Nimbus JOSE + JWT.</p>
+<h3 id="c2-richiedere-il-token">C2. Richiedere il token <a class="anchor" href="#c2-richiedere-il-token" aria-label="Link a questa sezione">#</a></h3>
+<p>La dichiarazione firmata si invia al servizio di autenticazione come modulo codificato (<code>application/x-www-form-urlencoded</code>):</p>
+<pre><code>curl -X POST 'https://auth.product-passport.ec.europa.eu/oauth2/token' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'grant_type=client_credentials' \
+  --data-urlencode 'client_id=sa_01KESEMPIO' \
+  --data-urlencode 'client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer' \
+  --data-urlencode 'client_assertion=eyJ0eXAiOiJjbGllbnQtYXV0aGVudGljYXRpb24rand0Iiwi…' \
+  --data-urlencode 'resource=https://auth.product-passport.ec.europa.eu/resources/dpp/registry'</code></pre>
+<div class="table-wrap cols-3"><table><thead><tr><th>Parametro</th><th>Obbligatorio</th><th>Valore</th></tr></thead><tbody>
+<tr><td data-label="Parametro"><code class="nw">grant_type</code></td><td data-label="Obbligatorio">Sì</td><td data-label="Valore"><code class="nw">client_credentials</code></td></tr>
+<tr><td data-label="Parametro"><code class="nw">client_id</code></td><td data-label="Obbligatorio">Sì</td><td data-label="Valore">Il Client ID, uguale a <code class="nw">iss</code> e <code class="nw">sub</code> della dichiarazione</td></tr>
+<tr><td data-label="Parametro"><code class="nw">client_assertion_type</code></td><td data-label="Obbligatorio">Sì</td><td data-label="Valore"><code class="brk">urn:ietf:params:oauth:client-<wbr>assertion-<wbr>type:jwt-<wbr>bearer</code></td></tr>
+<tr><td data-label="Parametro"><code class="nw">client_assertion</code></td><td data-label="Obbligatorio">Sì</td><td data-label="Valore">La dichiarazione firmata</td></tr>
+<tr><td data-label="Parametro"><code class="nw">resource</code></td><td data-label="Obbligatorio">Sì</td><td data-label="Valore">L'identificativo della risorsa «registro» dell'ambiente. È un identificativo logico: non va sostituito con l'indirizzo delle API</td></tr>
+<tr><td data-label="Parametro"><code class="nw">scope</code></td><td data-label="Obbligatorio">No</td><td data-label="Valore">Permette di chiedere un sottoinsieme dei permessi dell'account, mai di ampliarli</td></tr>
+</tbody></table></div>
+<p>La risposta:</p>
+<pre><code>{
+  "access_token": "eyJ0eXAiOiJhdCtqd3QiLCJhbGciOiJFUzM4NCIs…",
+  "token_type": "Bearer",
+  "expires_in": 900,
+  "scope": "…"
+}</code></pre>
+<p>Il token vale al massimo 15 minuti (<code>expires_in</code> in secondi) e va <strong>riutilizzato</strong> per tutte le chiamate fino a poco prima della scadenza: il servizio di autenticazione applica limiti al numero di richieste. Per un nuovo token si firma una nuova dichiarazione, con un nuovo <code>jti</code>.</p>
+<p>Gli errori del servizio di autenticazione sono volutamente poco dettagliati:</p>
+<div class="table-wrap cols-2"><table><thead><tr><th>Errore</th><th>Che cosa controllare</th></tr></thead><tbody>
+<tr><td data-label="Errore"><code class="nw">invalid_request</code></td><td data-label="Che cosa controllare">Parametri obbligatori, <code class="nw">client_assertion_type</code>, codifica della richiesta, un solo valore di <code class="nw">resource</code></td></tr>
+<tr><td data-label="Errore"><code class="nw">invalid_client</code></td><td data-label="Che cosa controllare">Client ID, kid, algoritmo, firma, <code class="nw">iss</code>/<code class="nw">sub</code>, <code class="nw">aud</code>, <code class="nw">iat</code>/<code class="nw">exp</code>, <code class="nw">jti</code> nuovo, stato della chiave, dell'account e dell'organizzazione</td></tr>
+<tr><td data-label="Errore"><code class="nw">invalid_scope</code></td><td data-label="Che cosa controllare">Lo scope chiesto non è disponibile per l'account o per la risorsa</td></tr>
+<tr><td data-label="Errore"><code class="nw">invalid_target</code></td><td data-label="Che cosa controllare">Il valore di <code class="nw">resource</code> non corrisponde all'ambiente</td></tr>
+<tr><td data-label="Errore"><code class="nw">429</code>, <code class="nw">503</code></td><td data-label="Che cosa controllare">Attendere quanto indicato da <code class="nw">Retry-After</code>, riprovare con attese crescenti e una nuova dichiarazione, riutilizzare i token validi</td></tr>
+</tbody></table></div>
+
+<h2 id="27-5-fase-d-la-registrazione">27.5 Fase D: la registrazione <a class="anchor" href="#27-5-fase-d-la-registrazione" aria-label="Link a questa sezione">#</a></h2>
+<p>Tutte le chiamate di questa fase usano il token ottenuto nella fase C, nell'intestazione <code>Authorization: Bearer</code>. L'organizzazione è ricavata dal token, quindi non va indicata nelle richieste.</p>
+<h3 id="d1-leggere-la-classificazione-del-prodotto">D1. Leggere la classificazione del prodotto <a class="anchor" href="#d1-leggere-la-classificazione-del-prodotto" aria-label="Link a questa sezione">#</a></h3>
+<p>Il gruppo e il sottogruppo di prodotto non si scelgono liberamente: si leggono dal registro.</p>
+<pre><code>GET /api/v1/dpp/product-groups HTTP/1.1
+Host: reg.product-passport.ec.europa.eu
+Authorization: Bearer eyJ0eXAiOiJhdCtqd3QiLCJhbGciOiJFUzM4NCIs…</code></pre>
+<pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
+  {
+    "code": "BATTERIES",
+    "label": "…",
+    "productSubGroups": [
+      { "code": "EV",  "label": "…" },
+      { "code": "LMT", "label": "…" },
+      …
+    ]
+  }
+]</code></pre>
+<p>La risposta è un elenco di gruppi, ciascuno con codice (<code>code</code>), descrizione (<code>label</code>) e sottogruppi validi. Per la batteria dell'e-bike si usano <code>BATTERIES</code> e <code>LMT</code>. L'esempio mostra solo i codici citati nei documenti della Commissione; descrizioni e sottogruppi completi sono quelli restituiti dal registro.</p>
+<h3 id="d2-inviare-la-richiesta-di-registrazione">D2. Inviare la richiesta di registrazione <a class="anchor" href="#d2-inviare-la-richiesta-di-registrazione" aria-label="Link a questa sezione">#</a></h3>
+<p>La richiesta indica la classificazione, valida per tutta la richiesta, e l'elenco dei passaporti da registrare, da 1 a 100:</p>
+<pre><code>POST /api/v1/dpp/submission HTTP/1.1
+Host: reg.product-passport.ec.europa.eu
+Authorization: Bearer eyJ0eXAiOiJhdCtqd3QiLCJhbGciOiJFUzM4NCIs…
+Content-Type: application/json
+Idempotency-Key: e3d45fbc-1250-49c4-a289-85fba5349b50
+X-Correlation-Id: corr_EX27-000184
+
+{
+  "productGroup": "BATTERIES",
+  "productSubGroup": "LMT",
+  "submissionItems": [
+    {
+      "uniqueProductIdentifier": "https://id.example.com/01/09506000134352/21/EX27-000184",
+      "granularity": "item",
+      "modelIdentifier": "EX-36-134"
+    }
+  ]
+}</code></pre>
+<p>Intestazioni:</p>
+<div class="table-wrap cols-3"><table><thead><tr><th>Intestazione</th><th>Obbligatoria</th><th>A che cosa serve</th></tr></thead><tbody>
+<tr><td data-label="Intestazione"><code class="nw">Authorization</code></td><td data-label="Obbligatoria">Sì</td><td data-label="A che cosa serve">Il token della fase C, preceduto da <code class="nw">Bearer</code></td></tr>
+<tr><td data-label="Intestazione"><code class="nw">Content-Type</code></td><td data-label="Obbligatoria">Sì</td><td data-label="A che cosa serve"><code class="nw">application/json</code>: il registro accetta solo JSON, senza caricamento di file</td></tr>
+<tr><td data-label="Intestazione"><code class="nw">Idempotency-Key</code></td><td data-label="Obbligatoria">Sì</td><td data-label="A che cosa serve">Identifica la richiesta come azione unica, fino a 128 caratteri; un UUID nuovo per ogni nuova richiesta. Se la stessa richiesta viene ripetuta, ad esempio dopo un errore di rete, si riusa la stessa chiave e il registro restituisce l'attività già creata invece di duplicarla</td></tr>
+<tr><td data-label="Intestazione"><code class="nw">X-Correlation-Id</code></td><td data-label="Obbligatoria">No</td><td data-label="A che cosa serve">Collega i log aziendali all'elaborazione del registro; se manca lo genera il registro. Va indicato nelle richieste di assistenza</td></tr>
+</tbody></table></div>
+<p>Corpo della richiesta:</p>
+<div class="table-wrap cols-4"><table><thead><tr><th>Campo</th><th>Obbligatorio</th><th>Nell'esempio</th><th>Spiegazione</th></tr></thead><tbody>
+<tr><td data-label="Campo"><code class="nw">productGroup</code></td><td data-label="Obbligatorio">Sì</td><td data-label="Nell&#x27;esempio"><code class="nw">BATTERIES</code></td><td data-label="Spiegazione">Codice del gruppo letto al passo D1</td></tr>
+<tr><td data-label="Campo"><code class="nw">productSubGroup</code></td><td data-label="Obbligatorio">Sì, per le batterie</td><td data-label="Nell&#x27;esempio"><code class="nw">LMT</code></td><td data-label="Spiegazione">Codice del sottogruppo letto al passo D1. Passaporti di sottogruppi diversi vanno in richieste diverse</td></tr>
+<tr><td data-label="Campo"><code class="nw">submissionItems</code></td><td data-label="Obbligatorio">Sì</td><td data-label="Nell&#x27;esempio">Un elemento</td><td data-label="Spiegazione">Da 1 a 100 passaporti; corpo della richiesta al massimo 10 MB</td></tr>
+<tr><td data-label="Campo"><code class="nw">uniqueProductIdentifier</code></td><td data-label="Obbligatorio">Sì</td><td data-label="Nell&#x27;esempio">URI GS1 Digital Link della batteria</td><td data-label="Spiegazione">URL HTTPS da 8 a 2000 caratteri. Il registro lo usa così com'è come indirizzo da cui leggere il passaporto, quindi deve essere identico all'UPI del passaporto</td></tr>
+<tr><td data-label="Campo"><code class="nw">granularity</code></td><td data-label="Obbligatorio">Sì</td><td data-label="Nell&#x27;esempio"><code class="nw">item</code></td><td data-label="Spiegazione"><code class="nw">item</code>, <code class="nw">batch</code> o <code class="nw">model</code>. Deve corrispondere a quella dichiarata nel passaporto, che lì è espressa con l'identificativo del vocabolario (<code class="nw">…/granularity-level#item</code>)</td></tr>
+<tr><td data-label="Campo"><code class="nw">modelIdentifier</code></td><td data-label="Obbligatorio">No</td><td data-label="Nell&#x27;esempio"><code class="nw">EX-36-134</code></td><td data-label="Spiegazione">Identificativo del modello</td></tr>
+<tr><td data-label="Campo"><code class="nw">batchIdentifier</code></td><td data-label="Obbligatorio">No</td><td data-label="Nell&#x27;esempio">Non indicato</td><td data-label="Spiegazione">Identificativo del lotto</td></tr>
+</tbody></table></div>
+<p>La specifica OpenAPI indica che l'identificativo del lotto e quello del modello dipendono dalla granularità scelta, senza dettagliare la regola; per il gruppo batterie non sono previsti altri campi.</p>
+<h3 id="d3-leggere-la-presa-in-carico">D3. Leggere la presa in carico <a class="anchor" href="#d3-leggere-la-presa-in-carico" aria-label="Link a questa sezione">#</a></h3>
+<pre><code>HTTP/1.1 202 Accepted
+Content-Type: application/json
+
+{
+  "taskId": "task_01KESEMPIO184",
+  "taskType": "DPP_REGISTRATION",
+  "correlationId": "corr_EX27-000184",
+  "submittedAt": "2027-03-15T09:00:04Z",
+  "updatedAt": "2027-03-15T09:00:04Z",
+  "estimatedPeriodCompletionTime": "PT10S"
+}</code></pre>
+<p><code>202 Accepted</code> significa solo che la richiesta è stata presa in carico: <strong>la batteria non è ancora registrata</strong>. Va conservato il <code>taskId</code>, che serve a seguire l'elaborazione. <code>estimatedPeriodCompletionTime</code>, se presente, è una stima in formato ISO 8601 (qui 10 secondi) di quando interrogare l'attività la prima volta, non una garanzia.</p>
+<p>Se la richiesta non viene accettata, la risposta riporta un messaggio (<code>message</code>) e, se disponibili, un codice (<code>code</code>, <code>subCode</code>) e il <code>correlationId</code>:</p>
+<div class="table-wrap cols-3"><table><thead><tr><th>Codice</th><th>Significato</th><th>Che cosa fare</th></tr></thead><tbody>
+<tr><td data-label="Codice"><code class="nw">400</code></td><td data-label="Significato">Richiesta non valida nella struttura</td><td data-label="Che cosa fare">Correggerla e inviarla con una nuova <code class="nw">Idempotency-Key</code></td></tr>
+<tr><td data-label="Codice"><code class="nw">403</code></td><td data-label="Significato">Organizzazione non verificata o account senza il ruolo richiesto</td><td data-label="Che cosa fare">Controllare lo stato dell'organizzazione e i permessi dell'account</td></tr>
+<tr><td data-label="Codice"><code class="nw">409</code></td><td data-label="Significato">Richiesta duplicata o in conflitto, ad esempio una chiave già usata per una richiesta diversa</td><td data-label="Che cosa fare">Verificare lo stato attuale; usare una nuova chiave solo per una richiesta nuova o modificata</td></tr>
+<tr><td data-label="Codice"><code class="nw">413</code></td><td data-label="Significato">Corpo della richiesta oltre 10 MB</td><td data-label="Che cosa fare">Ridurre la richiesta e inviarla con una nuova chiave</td></tr>
+<tr><td data-label="Codice"><code class="nw">422</code></td><td data-label="Significato">Dati logicamente non validi, oppure validazione temporaneamente non disponibile</td><td data-label="Che cosa fare">Dati errati: correggere e usare una nuova chiave. Validazione non disponibile: ripetere la stessa richiesta con la stessa chiave</td></tr>
+<tr><td data-label="Codice"><code class="nw">429</code></td><td data-label="Significato">Troppe richieste</td><td data-label="Che cosa fare">Attendere almeno il tempo indicato da <code class="nw">Retry-After</code> e ripetere con la stessa chiave</td></tr>
+<tr><td data-label="Codice"><code class="nw">500</code></td><td data-label="Significato">Errore tecnico</td><td data-label="Che cosa fare">Ripetere la stessa richiesta con la stessa chiave</td></tr>
+</tbody></table></div>
+<h3 id="d4-che-cosa-fa-il-registro">D4. Che cosa fa il registro <a class="anchor" href="#d4-che-cosa-fa-il-registro" aria-label="Link a questa sezione">#</a></h3>
+<p>Durante l'elaborazione il registro legge il passaporto all'indirizzo dell'UPI come descritto nella fase B, prima senza credenziali e poi con il token, e lo valida secondo il Regolamento di esecuzione (UE) 2026/1778, cioè con gli artefatti semantici della Commissione (si veda la <a href="26-battery-passport-example.html#26-9-i-dati-in-formato-leggibile-dalle-macchine">Sezione 26.9</a>). Il contenuto letto non viene conservato.</p>
+<p>La registrazione è <strong>atomica</strong>: se anche un solo passaporto della richiesta non è conforme, non ne viene registrato nessuno, compresi quelli corretti.</p>
+<h3 id="d5-seguire-l-attivita-fino-all-esito">D5. Seguire l'attività fino all'esito <a class="anchor" href="#d5-seguire-l-attivita-fino-all-esito" aria-label="Link a questa sezione">#</a></h3>
+<p>Trascorso il tempo stimato, si interroga l'attività:</p>
+<pre><code>GET /api/v1/tasks/task_01KESEMPIO184 HTTP/1.1
+Host: reg.product-passport.ec.europa.eu
+Authorization: Bearer eyJ0eXAiOiJhdCtqd3QiLCJhbGciOiJFUzM4NCIs…</code></pre>
+<p>Finché l'elaborazione è in corso lo stato (<code>status</code>) è <code>PENDING</code> o <code>PROCESSING</code>:</p>
+<pre><code>{
+  "taskId": "task_01KESEMPIO184",
+  "taskType": "DPP_REGISTRATION",
+  "correlationId": "corr_EX27-000184",
+  "status": "PROCESSING",
+  "organisationId": "org_01KESEMPIO",
+  "submittedAt": "2027-03-15T09:00:04Z"
+}</code></pre>
+<p>In questo caso si interroga di nuovo con intervalli crescenti: 1, 1, 2, 3, 5, 8, 13, 21, 34 e 55 secondi, poi ogni 60 secondi al massimo, fino a uno stato finale. Se la risposta contiene <code>Retry-After</code>, si attende almeno quel tempo, anche oltre i 60 secondi.</p>
+<p>Gli stati finali sono due: <code>COMPLETED</code>, elaborazione conclusa con un esito, ed <code>ERROR</code>, errore tecnico dell'elaborazione. Per un'attività <code>COMPLETED</code> l'esito è in <code>outcome.outcomeResult</code>. Nell'esempio la registrazione riesce:</p>
+<pre><code>{
+  "taskId": "task_01KESEMPIO184",
+  "taskType": "DPP_REGISTRATION",
+  "correlationId": "corr_EX27-000184",
+  "status": "COMPLETED",
+  "organisationId": "org_01KESEMPIO",
+  "submittedAt": "2027-03-15T09:00:04Z",
+  "completedAt": "2027-03-15T09:00:12Z",
+  "outcome": {
+    "outcomeResult": "SUCCEEDED"
+  },
+  "specificTaskData": {
+    "productGroup": "BATTERIES",
+    "productSubGroup": "LMT",
+    "submissionRequestId": "reg_01KESEMPIO184",
+    "processingInfo": {
+      "submittedItems": 1,
+      "compliantItems": 1,
+      "nonCompliantItems": 0
+    }
+  }
+}</code></pre>
+<div class="table-wrap cols-3"><table><thead><tr><th>Stato</th><th>Esito</th><th>Significato</th></tr></thead><tbody>
+<tr><td data-label="Stato"><code class="nw">PENDING</code>, <code class="nw">PROCESSING</code></td><td data-label="Esito">Nessuno</td><td data-label="Significato">Elaborazione in attesa o in corso: continuare a interrogare</td></tr>
+<tr><td data-label="Stato"><code class="nw">COMPLETED</code></td><td data-label="Esito"><code class="nw">SUCCEEDED</code></td><td data-label="Significato">Tutti i passaporti della richiesta sono registrati</td></tr>
+<tr><td data-label="Stato"><code class="nw">COMPLETED</code></td><td data-label="Esito"><code class="nw">FAILED</code></td><td data-label="Significato">Almeno un passaporto non è conforme: nessuno è registrato</td></tr>
+<tr><td data-label="Stato"><code class="nw">ERROR</code></td><td data-label="Esito">Nessuno</td><td data-label="Significato">Errore tecnico dell'elaborazione, non un giudizio sui passaporti</td></tr>
+</tbody></table></div>
+<p>I contatori di <code>processingInfo</code> indicano quanti passaporti sono stati inviati, quanti sono risultati conformi e quanti no; non indicano registrazioni parziali. L'elenco di tutte le attività dell'organizzazione è disponibile con <code>GET /api/v1/tasks?taskType=DPP_REGISTRATION</code>, con filtri per stato e data e paginazione fino a 100 righe.</p>
+<h3 id="d6-leggere-l-identificativo-assegnato-dal-registro">D6. Leggere l'identificativo assegnato dal registro <a class="anchor" href="#d6-leggere-l-identificativo-assegnato-dal-registro" aria-label="Link a questa sezione">#</a></h3>
+<p>L'esito per singolo passaporto si legge nell'elenco degli elementi dell'attività:</p>
+<pre><code>GET /api/v1/tasks/task_01KESEMPIO184/items?page=0&amp;size=25 HTTP/1.1
+Host: reg.product-passport.ec.europa.eu
+Authorization: Bearer eyJ0eXAiOiJhdCtqd3QiLCJhbGciOiJFUzM4NCIs…
+Accept: application/json</code></pre>
+<pre><code>{
+  "content": [
+    {
+      "taskId": "task_01KESEMPIO184",
+      "taskItemIndex": 0,
+      "taskType": "DPP_REGISTRATION",
+      "outcomeMessage": {
+        "code": "ITEM_COMPLIANT",
+        "message": "Item passed validation"
+      },
+      "outcomeDetails": [],
+      "specificTaskItemData": {
+        "uniqueProductIdentifier": "https://id.example.com/01/09506000134352/21/EX27-000184",
+        "uniqueRegistryIdentifier": "REG-ESEMPIO-000184",
+        "productGroup": "BATTERIES",
+        "productSubGroup": "LMT",
+        "submissionRequestId": "reg_01KESEMPIO184",
+        "granularityLevel": "item",
+        "modelIdentifier": "EX-36-134"
+      }
+    }
+  ],
+  "page": 0,
+  "size": 25,
+  "totalElements": 1
+}</code></pre>
+<p><code>uniqueRegistryIdentifier</code> è l'identificativo che il registro assegna al passaporto ed è presente solo se l'intera richiesta è andata a buon fine. Va conservato nei sistemi aziendali insieme al GTIN e al numero di serie della batteria. Le guide non ne specificano il formato: il valore dell'esempio è fittizio.</p>
+<p>Con <code>Accept: text/csv</code> lo stesso elenco si ottiene in formato CSV, una riga per passaporto, utile per richieste con molti elementi. La paginazione vale per entrambi i formati.</p>
+
+<h2 id="27-6-se-la-registrazione-non-riesce">27.6 Se la registrazione non riesce <a class="anchor" href="#27-6-se-la-registrazione-non-riesce" aria-label="Link a questa sezione">#</a></h2>
+<p>Si supponga che Azienda Esempio registri insieme le batterie EX27-000184 ed EX27-000185, e che la seconda non sia ancora pubblicata. L'attività si conclude così:</p>
+<pre><code>"status": "COMPLETED",
+"outcome": {
+  "outcomeResult": "FAILED",
+  "outcomeMessage": {
+    "code": "REJECTED",
+    "message": "DPP submission contains non-compliant items"
+  }
+},
+"specificTaskData": {
+  …
+  "processingInfo": { "submittedItems": 2, "compliantItems": 1, "nonCompliantItems": 1 }
+}</code></pre>
+<p>L'elenco degli elementi indica quale passaporto ha causato il rifiuto e perché:</p>
+<pre><code>{
+  "taskItemIndex": 1,
+  "outcomeMessage": { "code": "ITEM_NON_COMPLIANT", "message": "UPI not resolvable" },
+  "outcomeDetails": [
+    {
+      "code": "UPI_NOT_RESOLVABLE",
+      "message": "The uniqueProductIdentifier could not be resolved over HTTPS"
+    }
+  ],
+  "specificTaskItemData": {
+    "uniqueProductIdentifier": "https://id.example.com/01/09506000134352/21/EX27-000185",
+    …
+  }
+}</code></pre>
+<p>Nessuna delle due batterie è registrata, nemmeno la EX27-000184, che era conforme. Si corregge la causa, qui pubblicando il passaporto della EX27-000185, e si invia di nuovo <strong>la richiesta completa</strong> con entrambe le batterie, come nuova richiesta e quindi con una <strong>nuova</strong> <code>Idempotency-Key</code>.</p>
+<p>Le cause più frequenti si possono prevenire prima dell'invio:</p>
+<div class="table-wrap cols-2"><table><thead><tr><th>Causa</th><th>Come prevenirla</th></tr></thead><tbody>
+<tr><td data-label="Causa">Passaporto non raggiungibile (<code class="nw">UPI_NOT_RESOLVABLE</code>)</td><td data-label="Come prevenirla">Pubblicare il passaporto prima della richiesta e verificare che l'UPI risponda senza credenziali, con al massimo tre reindirizzamenti</td></tr>
+<tr><td data-label="Causa">Passaporto non conforme al modello della Commissione</td><td data-label="Come prevenirla">Validare ogni vista con i JSON Schema e le regole SHACL della release dichiarata in <code class="nw">contentSpecificationIds</code></td></tr>
+<tr><td data-label="Causa">Parte riservata non leggibile</td><td data-label="Come prevenirla">Provare il controllo del token in accettazione: destinatario, scope e org-identifier</td></tr>
+<tr><td data-label="Causa">Classificazione o granularità incoerenti</td><td data-label="Come prevenirla">Usare i codici letti al passo D1 e la stessa granularità dichiarata nel passaporto</td></tr>
+</tbody></table></div>
+
+<h2 id="27-7-dopo-la-registrazione">27.7 Dopo la registrazione <a class="anchor" href="#27-7-dopo-la-registrazione" aria-label="Link a questa sezione">#</a></h2>
+<ul>
+<li><strong>Conservare i riferimenti</strong>: per ogni batteria l'identificativo del registro, il <code>taskId</code> e il <code>correlationId</code>, collegati al GTIN e al numero di serie.</li>
+<li><strong>Mantenere il passaporto raggiungibile</strong>: il registro non ne conserva il contenuto, quindi la disponibilità all'indirizzo dell'UPI resta responsabilità dell'operatore economico per tutta la durata prevista.</li>
+<li><strong>Aggiornare i dati dinamici</strong> (data point 51–71) sulla piattaforma del passaporto, come descritto nella <a href="26-battery-passport-example.html#26-6-il-passaporto-dati-della-singola-batteria-nel-tempo">Sezione 26.6</a>. La versione 1.0 delle API pubbliche comprende solo la registrazione: le guide non descrivono operazioni di modifica o di ritiro di una registrazione.</li>
+<li><strong>Gestire le chiavi</strong>: rinnovarle prima della scadenza con la sostituzione a due chiavi descritta al passo A3; in caso di compromissione revocare subito la chiave o eliminare l'account, sapendo che un token già emesso resta utilizzabile fino alla scadenza, al massimo 15 minuti.</li>
+<li><strong>Registrare più batterie insieme</strong>: fino a 100 per richiesta, purché dello stesso gruppo e sottogruppo. Dato che la registrazione è atomica, richieste più piccole limitano l'effetto di un singolo passaporto non conforme.</li>
+</ul>
+
+<h2 id="27-8-lista-di-controllo-prima-della-produzione">27.8 Lista di controllo prima della produzione <a class="anchor" href="#27-8-lista-di-controllo-prima-della-produzione" aria-label="Link a questa sezione">#</a></h2>
+<p>Da completare nell'ambiente di accettazione e da ripetere a ogni cambiamento di chiavi, indirizzi o regole di accesso.</p>
+<div class="table-wrap cols-2"><table><thead><tr><th>Ambito</th><th>Verifica</th></tr></thead><tbody>
+<tr><td data-label="Ambito">Organizzazione</td><td data-label="Verifica">Stato <code class="nw">VERIFIED</code>; org-identifier configurato esattamente come mostrato nel portale</td></tr>
+<tr><td data-label="Ambito">Account di servizio</td><td data-label="Verifica">Ruolo <em>Register DPPs</em>; Client ID corretto; chiave attiva e kid corretto; chiave privata protetta e assente da codice e log</td></tr>
+<tr><td data-label="Ambito">Token di accesso</td><td data-label="Verifica">Dichiarazione nuova a ogni richiesta, con <code class="nw">typ</code>, <code class="nw">alg</code>, <code class="nw">iss</code>, <code class="nw">sub</code>, <code class="nw">aud</code>, <code class="nw">iat</code>, <code class="nw">exp</code> e <code class="nw">jti</code> corretti; token riutilizzato fino a poco prima della scadenza; <code class="nw">Retry-After</code> rispettato</td></tr>
+<tr><td data-label="Ambito">Pubblicazione</td><td data-label="Verifica">UPI raggiungibile in HTTPS senza credenziali, con al massimo tre reindirizzamenti; risposta anonima con la sola parte pubblica; risposta autenticata con parte pubblica e riservata, senza reindirizzamenti</td></tr>
+<tr><td data-label="Ambito">Controllo dei token del registro</td><td data-label="Verifica">Le prove della guida della Commissione danno l'esito atteso: token assente (200, solo parte pubblica), token valido (200, completo), token scaduto, con firma o destinatario errati o di un altro ambiente (401), scope o richiedente errati (403)</td></tr>
+<tr><td data-label="Ambito">Dati</td><td data-label="Verifica">Ogni vista del passaporto supera i JSON Schema e le regole SHACL della release dichiarata</td></tr>
+<tr><td data-label="Ambito">Registrazione</td><td data-label="Verifica">Gestione di <code class="nw">Idempotency-Key</code>, polling con intervalli crescenti, lettura di esito ed elementi, conservazione dell'identificativo del registro</td></tr>
+<tr><td data-label="Ambito">Sicurezza dei log</td><td data-label="Verifica">Nessun token, intestazione <code class="nw">Authorization</code>, dichiarazione firmata o dato riservato nei log e nelle richieste di assistenza</td></tr>
+</tbody></table></div>
+<p>Per l'assistenza tecnica la Commissione indica l'helpdesk <a href="mailto:EC-HELPDESK-DPP@ec.europa.eu">EC-HELPDESK-DPP@ec.europa.eu</a>, tutti i giorni dalle 8 alle 20 (CET). Nelle richieste vanno indicati ambiente, ora UTC, <code>correlationId</code> e indirizzo pubblico interessato.</p>
+
+<h2 id="27-9-gli-identificativi-dell-esempio">27.9 Gli identificativi dell'esempio <a class="anchor" href="#27-9-gli-identificativi-dell-esempio" aria-label="Link a questa sezione">#</a></h2>
+<div class="table-wrap cols-4"><table><thead><tr><th>Identificativo</th><th>Valore nell'esempio</th><th>Chi lo assegna</th><th>A che cosa serve</th></tr></thead><tbody>
+<tr><td data-label="Identificativo">GTIN e numero di serie</td><td data-label="Valore nell&#x27;esempio"><code class="nw">09506000134352</code>, <code class="nw">EX27-000184</code></td><td data-label="Chi lo assegna">Azienda Esempio, con gli standard GS1</td><td data-label="A che cosa serve">Identificano il modello e la singola batteria</td></tr>
+<tr><td data-label="Identificativo"><code class="nw">uniqueProductIdentifier</code> (UPI)</td><td data-label="Valore nell&#x27;esempio"><code class="brk">https://<wbr>id.<wbr>example.<wbr>com/<wbr>01/<wbr>09506000134352/<wbr>21/<wbr>EX27-<wbr>000184</code></td><td data-label="Chi lo assegna">Azienda Esempio</td><td data-label="A che cosa serve">Identifica il prodotto; è l'indirizzo da cui il registro legge il passaporto</td></tr>
+<tr><td data-label="Identificativo"><code class="nw">digitalProductPassportId</code></td><td data-label="Valore nell&#x27;esempio"><code class="brk">https://<wbr>id.<wbr>example.<wbr>com/<wbr>dpp/<wbr>EX27-<wbr>000184</code></td><td data-label="Chi lo assegna">Azienda Esempio o il suo fornitore di servizi</td><td data-label="A che cosa serve">Identifica il passaporto; compare solo nel passaporto</td></tr>
+<tr><td data-label="Identificativo">org-identifier</td><td data-label="Valore nell&#x27;esempio"><code class="nw">ORG-ESEMPIO-0001</code></td><td data-label="Chi lo assegna">Registro, alla verifica dell'organizzazione</td><td data-label="A che cosa serve">Riconoscere le richieste del registro fatte per conto dell'azienda</td></tr>
+<tr><td data-label="Identificativo">Client ID</td><td data-label="Valore nell&#x27;esempio"><code class="nw">sa_01KESEMPIO</code></td><td data-label="Chi lo assegna">Registro, alla creazione dell'account di servizio</td><td data-label="A che cosa serve">Identifica il sistema aziendale nella richiesta del token</td></tr>
+<tr><td data-label="Identificativo">kid</td><td data-label="Valore nell&#x27;esempio"><code class="nw">chiave-2027-03</code></td><td data-label="Chi lo assegna">Azienda Esempio, alla registrazione della chiave</td><td data-label="A che cosa serve">Indica quale chiave ha firmato la dichiarazione</td></tr>
+<tr><td data-label="Identificativo"><code class="nw">Idempotency-Key</code></td><td data-label="Valore nell&#x27;esempio">UUID</td><td data-label="Chi lo assegna">Azienda Esempio, per ogni nuova richiesta</td><td data-label="A che cosa serve">Evita registrazioni duplicate quando una richiesta viene ripetuta</td></tr>
+<tr><td data-label="Identificativo"><code class="nw">correlationId</code></td><td data-label="Valore nell&#x27;esempio"><code class="nw">corr_EX27-000184</code></td><td data-label="Chi lo assegna">Azienda Esempio (<code class="nw">X-Correlation-Id</code>) o, in mancanza, il registro</td><td data-label="A che cosa serve">Collega log aziendali, elaborazione e richieste di assistenza</td></tr>
+<tr><td data-label="Identificativo"><code class="nw">taskId</code></td><td data-label="Valore nell&#x27;esempio"><code class="nw">task_01KESEMPIO184</code></td><td data-label="Chi lo assegna">Registro, alla presa in carico</td><td data-label="A che cosa serve">Seguire l'elaborazione e leggerne l'esito</td></tr>
+<tr><td data-label="Identificativo"><code class="nw">uniqueRegistryIdentifier</code></td><td data-label="Valore nell&#x27;esempio"><code class="nw">REG-ESEMPIO-000184</code></td><td data-label="Chi lo assegna">Registro, a registrazione riuscita</td><td data-label="A che cosa serve">Identifica la registrazione del passaporto nel registro</td></tr>
+</tbody></table></div>
+<p>Fonti: Commissione europea, DG GROW, <em>DPP Registry – API Integration Guide for Economic Operators</em>, <em>DPP Registry Service Account Technical Integration Guide for Economic Operators</em>, <em>DPP Registry – Self-Hosted Authentication Guide for Economic Operators</em> (versione 1.0, 30 ottobre 2026) e specifiche OpenAPI del registro, del cruscotto delle attività e dei componenti comuni (versione 1.0.0).</p>
+
+</article>
+<nav class="pager" aria-label="Navigazione tra le pagine"><a class="prev" href="26-battery-passport-example.html"><span>Precedente</span>26. Esempio completo: passaporto di una batteria per e-bike</a></nav>
+<footer class="foot">
+<p>Edizione italiana a cura di <strong>GS1 Italy</strong> delle linee guida GS1 in Europe sull'implementazione del Regolamento (UE) 2023/1542. Documento di lavoro: i contenuti non costituiscono consulenza legale; fa fede il testo ufficiale del Regolamento.</p>
+</footer>
+</main>
+<aside class="toc" aria-label="In questa pagina"><p class="toc-title">In questa pagina</p><ul><li><a href="#27-1-il-percorso-in-sintesi">27.1 Il percorso in sintesi</a></li><li><a href="#27-2-fase-a-accesso-al-registro">27.2 Fase A: accesso al registro</a></li><li><a href="#27-3-fase-b-pubblicare-il-passaporto">27.3 Fase B: pubblicare il passaporto</a></li><li><a href="#27-4-fase-c-ottenere-il-token-di-accesso">27.4 Fase C: ottenere il token di accesso</a></li><li><a href="#27-5-fase-d-la-registrazione">27.5 Fase D: la registrazione</a></li><li><a href="#27-6-se-la-registrazione-non-riesce">27.6 Se la registrazione non riesce</a></li><li><a href="#27-7-dopo-la-registrazione">27.7 Dopo la registrazione</a></li><li><a href="#27-8-lista-di-controllo-prima-della-produzione">27.8 Lista di controllo prima della produzione</a></li><li><a href="#27-9-gli-identificativi-dell-esempio">27.9 Gli identificativi dell&#x27;esempio</a></li></ul></aside>
+</div>
+<div class="search-modal" role="dialog" aria-modal="true" aria-label="Ricerca" hidden>
+  <div class="search-panel">
+    <div class="search-field">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm9 2-4-4"/></svg>
+      <input type="search" placeholder="Cerca nelle linee guida (es. passaporto, GTIN, articolo 77)" autocomplete="off" spellcheck="false" aria-label="Testo da cercare">
+      <button class="search-close" type="button" aria-label="Chiudi la ricerca">Esc</button>
+    </div>
+    <ul class="search-results" role="listbox"></ul>
+    <p class="search-hint"><kbd>↑</kbd><kbd>↓</kbd> per spostarti · <kbd>Invio</kbd> per aprire · <kbd>Esc</kbd> per chiudere</p>
+  </div>
+</div>
+<script src="assets/main.js"></script>
+</body>
+</html>
